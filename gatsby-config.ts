@@ -1,3 +1,7 @@
+require('dotenv').config();
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
@@ -18,15 +22,17 @@ const config: GatsbyConfig = {
         token: process.env.SANITY_READ_TOKEN,
       },
     },
+    'gatsby-plugin-postcss',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: '',
-      },
-    },
+    // TODO: Uncomment when GA trackingID is known
+    // {
+    //   resolve: 'gatsby-plugin-google-analytics',
+    //   options: {
+    //     trackingId: '',
+    //   },
+    // },
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
@@ -60,7 +66,7 @@ const config: GatsbyConfig = {
         // These can be imported once ESM support lands
         background_color: '#ffe491',
         theme_color: '#004ca3',
-        icon: 'src/favicon.png',
+        icon: 'src/images/icon.png',
       },
     },
   ],
