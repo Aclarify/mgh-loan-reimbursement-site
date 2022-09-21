@@ -107,7 +107,9 @@ const Footer: StandardFC<FooterProps> = () => {
       <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <Logo />
+            <div className={clsx('h-10', 'w-auto', 'pr-8')}>
+              <Logo />
+            </div>
             <p className="text-base text-gray-500">
               Making the world a better place through constructing elegant
               hierarchies.
@@ -196,7 +198,8 @@ const Footer: StandardFC<FooterProps> = () => {
         </div>
         <div className="mt-12 border-t border-gray-200 pt-8">
           <p className="text-base text-gray-400 xl:text-center">
-            &copy; 2020 Your Company, Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} The General Hospital Corporation.
+            All rights reserved.
           </p>
         </div>
       </div>

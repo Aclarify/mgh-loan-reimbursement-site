@@ -11,7 +11,10 @@ const Logo: StandardFC<LogoProps> = () => {
     secondary: '#009CA6',
   };
   return (
-    <Link to="/" className={clsx('w-full', 'h-full', 'relative')}>
+    <Link
+      to="/"
+      className={clsx('w-full', 'h-full', 'relative', 'outline-none')}
+    >
       <svg
         version="1.1"
         id="Artboard_1"
