@@ -23,7 +23,7 @@ export default {
       name: 'type',
       type: 'string',
       options: {
-        list: [{ title: 'Primary Brand Color', value: 'primary' }], // <-- predefined values
+        list: [{ title: 'Default Text Color', value: 'default' }], // <-- predefined values
       },
     },
   ],
