@@ -1,6 +1,6 @@
 export default {
   name: 'navigation',
-  title: 'Navbar',
+  title: 'Navigation',
   type: 'document',
   fields: [
     {
