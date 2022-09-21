@@ -20,6 +20,7 @@ const config: GatsbyConfig = {
         projectId: process.env.SANITY_PROJECT_ID,
         dataset: process.env.SANITY_PROJECT_DATASET,
         token: process.env.SANITY_READ_TOKEN,
+        watchMode: process.env.SANITY_WATCH_MODE === 'true',
       },
     },
     'gatsby-plugin-postcss',
