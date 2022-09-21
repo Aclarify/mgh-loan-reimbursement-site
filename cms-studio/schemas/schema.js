@@ -8,7 +8,6 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 import link from './link'
 import navigation from './navigation'
 import cta from './cta'
-import globalConfigs from './globalConfigs'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -22,7 +21,6 @@ export default createSchema({
     link,
     cta,
     navigation,
-    globalConfigs,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),
