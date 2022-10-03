@@ -4,9 +4,9 @@ export default {
   type: 'document',
   fields: [
     {
-      name: "name",
-      title: "Name",
-      type: "string"
+      name: 'name',
+      title: 'Name',
+      type: 'string',
     },
     {
       name: 'logo',
@@ -29,11 +29,21 @@ export default {
       of: [
         {
           type: 'reference',
-          to: [
-            { type: 'link' },
-          ],
+          to: [{ type: 'link' }],
         },
       ],
+    },
+    {
+      title: 'Text/Icon List',
+      name: 'textIconList',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'textIconItem' }] }],
+    },
+    {
+      title: 'Content',
+      name: 'content',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'contentCoordinator' }] }],
     },
   ],
   preview: {

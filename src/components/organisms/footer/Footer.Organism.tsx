@@ -1,5 +1,7 @@
 import clsx from 'clsx';
+import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
+import { NavigationProps } from '../../../types/content/sanity.content';
 import { StandardFC } from '../../../types/libs/react.lib';
 import Logo from '../../atoms/Logo/Logo.Atom';
 
@@ -93,9 +95,42 @@ const navigation = {
   ],
 };
 
-interface FooterProps {}
-
-const Footer: StandardFC<FooterProps> = () => {
+const Footer: StandardFC = () => {
+  const { allSanityNavigation } = useStaticQuery<NavigationProps>(graphql`
+    query {
+      allSanityNavigation(filter: { name: { eq: "Footer" } }) {
+        edges {
+          node {
+            name
+            logo {
+              asset {
+                gatsbyImageData(fit: FILL, placeholder: BLURRED)
+                altText
+              }
+            }
+            links {
+              name
+              text
+              href
+              type
+            }
+            cta {
+              text
+              href
+              type
+            }
+            textIconList {
+              icon
+              text
+              href
+            }
+          }
+        }
+      }
+    }
+  `);
+  const footerConfig = allSanityNavigation.edges[0].node;
+  const { logo, links, cta, textIconList } = footerConfig;
   return (
     <footer
       className={clsx('bg-white', 'border-t', 'border-gray-200')}
@@ -107,8 +142,8 @@ const Footer: StandardFC<FooterProps> = () => {
       <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-1">
-            <div className={clsx('h-10', 'w-auto', 'pr-8')}>
-              <Logo />
+            <div className={clsx('h-24', 'w-auto', 'pr-8')}>
+              <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
             </div>
             <p className="text-base text-gray-500">
               Making the world a better place through constructing elegant

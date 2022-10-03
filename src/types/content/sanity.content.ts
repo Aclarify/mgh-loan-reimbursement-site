@@ -12,6 +12,19 @@ export interface Cta {
   href: string;
   type: 'default';
 }
+
+export enum HERO_TEXT_ICONS {
+  PHONE = 'phone',
+  ENVELOPE = 'envelope',
+  MAP_PIN = 'map-pin',
+}
+
+export interface TextIcon {
+  icon: HERO_TEXT_ICONS;
+  text: string;
+  href: string;
+}
+
 export interface NavigationProps {
   allSanityNavigation: {
     edges: [
@@ -25,6 +38,7 @@ export interface NavigationProps {
           };
           links: Link[];
           cta: Cta;
+          textIconList: TextIcon[];
         };
       }
     ];
