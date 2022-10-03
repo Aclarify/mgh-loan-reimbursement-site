@@ -52,3 +52,12 @@
 Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
 
 [<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+
+# Using Sanity
+
+1 - Install dependencies in `./cms-studio`
+2 - Install Sanity CLI (see [here](https://www.sanity.io/docs/getting-started-with-sanity-cli) for instructions)
+3 - Login with the Sanity CLI from your terminal inside the root project folder
+4 - Run `$ node ./scripts/bootstrap-env.js` -> Should set your env variables up
+5 - From `./cms-studio`, run `yarn start`
+6 - Once you've created data that you'd like piped into the local app, run `yarn deploy`
