@@ -6,10 +6,19 @@ export interface Link {
   href: string;
   type: 'default';
 }
-
+export interface LinkGroup {
+  name: string;
+  text: string;
+  links: Link[];
+}
 export interface Cta {
   text: string;
   href: string;
+  type: 'default';
+}
+export interface TextLogo {
+  titleLine1: string;
+  titleLine2: string;
   type: 'default';
 }
 
@@ -39,6 +48,8 @@ export interface NavigationProps {
           links: Link[];
           cta: Cta;
           textIconList: TextIcon[];
+          linkGroup: LinkGroup;
+          textLogo: TextLogo;
         };
       }
     ];

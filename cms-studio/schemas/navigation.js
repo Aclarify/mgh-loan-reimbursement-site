@@ -17,10 +17,22 @@ export default {
       },
     },
     {
+      name: 'textLogo',
+      title: 'Text Logo',
+      type: 'reference',
+      to: [{ type: 'textLogo' }],
+    },
+    {
       title: 'Call-to-Action',
       name: 'cta',
       type: 'reference',
       to: [{ type: 'cta' }],
+    },
+    {
+      title: 'Link Group',
+      name: 'linkGroup',
+      type: 'reference',
+      to: [{ type: 'linkGroup' }],
     },
     {
       title: 'Nav Links',
