@@ -12,6 +12,8 @@ import navigation from './navigation';
 import cta from './cta';
 import textIcon from './textIcon';
 import contentCoordinator from './contentCoordinator';
+import socialMediaIcons from './socialMediaIcons';
+import textIconGroup from './textIconGroup';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -29,6 +31,8 @@ export default createSchema({
     navigation,
     linkGroup,
     textLogo,
+    textIconGroup,
+    socialMediaIcons,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

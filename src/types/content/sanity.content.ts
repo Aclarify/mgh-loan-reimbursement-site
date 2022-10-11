@@ -11,6 +11,12 @@ export interface LinkGroup {
   text: string;
   links: Link[];
 }
+
+export interface TextIconGroup {
+  name: string;
+  text: string;
+  textIcons: TextIcon[];
+}
 export interface Cta {
   text: string;
   href: string;
@@ -19,6 +25,12 @@ export interface Cta {
 export interface TextLogo {
   titleLine1: string;
   titleLine2: string;
+  titleNote: string;
+  type: 'default';
+}
+
+export interface FooterDescription {
+  text: string;
   type: 'default';
 }
 
@@ -30,6 +42,19 @@ export enum HERO_TEXT_ICONS {
 
 export interface TextIcon {
   icon: HERO_TEXT_ICONS;
+  text: string;
+  href: string;
+}
+
+export enum SocialMediaIcons {
+  FACEBOOK = 'Facebook',
+  TWITTER = 'Twitter',
+  INSTAGRAM = 'Instagram',
+  DRIBBLE = 'Dribble',
+  GITHUB = 'Github',
+}
+export interface MediaIcon {
+  icon: SocialMediaIcons;
   text: string;
   href: string;
 }
@@ -49,7 +74,10 @@ export interface NavigationProps {
           cta: Cta;
           textIconList: TextIcon[];
           linkGroup: LinkGroup;
+          contactIconGroup: TextIconGroup;
           textLogo: TextLogo;
+          footerDescription: FooterDescription;
+          mediaIconList: MediaIcon[];
         };
       }
     ];

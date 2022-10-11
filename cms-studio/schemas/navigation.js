@@ -46,10 +46,16 @@ export default {
       ],
     },
     {
-      title: 'Text/Icon List',
-      name: 'textIconList',
+      title: 'Text/Icon Group',
+      name: 'contactIconGroup',
+      type: 'reference',
+      to: [{ type: 'textIconGroup' }],
+    },
+    {
+      title: 'Social Media Icon List',
+      name: 'mediaIconList',
       type: 'array',
-      of: [{ type: 'reference', to: [{ type: 'textIconItem' }] }],
+      of: [{ type: 'reference', to: [{ type: 'mediaIconItem' }] }],
     },
     {
       title: 'Content',

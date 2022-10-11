@@ -6,7 +6,7 @@ import DefaultLayout from '../components/templates/layouts/Default.Layout.Templa
 const IndexPage = () => {
   return (
     <DefaultLayout>
-      <section className={clsx('h-full', 'bg-blue-500')}>Hero</section>
+      {/* <section className={clsx('h-full', 'bg-blue-500')}>Hero</section> */}
     </DefaultLayout>
   );
 };
