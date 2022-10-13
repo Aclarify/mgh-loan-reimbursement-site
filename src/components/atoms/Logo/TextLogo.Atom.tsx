@@ -6,9 +6,13 @@ interface Props {
 }
 const TextLogo: React.FC<Props> = (props) => {
   return (
-    <div className="border-l-[#B0BE20] border-solid border-l-2 px-2 font-sans text-3xl mb-4">
-      <h1>{props.titleLine1}</h1>
-      <h1>{props.titleLine2}</h1>
+    <div className="flex-column border-l-[#B0BE20] border-solid border-l-2 px-2 font-sans text-xl sm:text-3xl  mb-4">
+      <div>
+        <span>{props.titleLine1}</span>
+      </div>
+      <div>
+        <span>{props.titleLine2}</span>
+      </div>
     </div>
   );
 };

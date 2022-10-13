@@ -128,8 +128,11 @@ const Footer: StandardFC = () => {
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="container mx-auto max-w-7xl py-12 px-24 sm:px-6 lg:py-16 lg:px-24 ">
-        <section id="topFooter" className="flex text-white justify-between">
+      <div className="container mx-auto max-w-7xl py-6 px-6  lg:py-16 lg:px-8 ">
+        <section
+          id="topFooter"
+          className="flex-column md:flex lg:flex text-white justify-between"
+        >
           <section id="desc" className="basis-1/2">
             <div id="titleText">
               <TextLogo
@@ -138,9 +141,9 @@ const Footer: StandardFC = () => {
               />
             </div>
             <div id="programDesc">
-              <p className="text-xs w-3/4 leading-5">{textLogo.titleNote}</p>
+              <p className="text-xs sm:w-3/4 leading-5">{textLogo.titleNote}</p>
             </div>
-            <div id="mediaIcons" className="flex space-x-6 mt-5">
+            <div id="mediaIcons" className="flex space-x-6 my-5">
               {mediaIconList.map((item) => {
                 const socialMedia = socialMediaIconsMap.get(item.icon);
                 if (socialMedia) {
@@ -159,7 +162,7 @@ const Footer: StandardFC = () => {
           </section>
           <section id="contactDtls" className="flex-col  w-64">
             <div id="contactTitle" className="mb-6">
-              <span className="text-sm font-medium">
+              <span className="text-xl sm:text-sm sm:font-medium">
                 {contactIconGroup.text}
               </span>
             </div>
@@ -234,7 +237,7 @@ const Footer: StandardFC = () => {
               topFooterNavLinks.length &&
               topFooterNavLinks.map((link, index) => (
                 <div key={index}>
-                  <p className="text-sm font-medium text-white-400 xl:text-right mr-4 pb-4 whitespace-nowrap">
+                  <p className="text-xl sm:text-sm sm:font-medium text-white-400 sm:text-right mr-4 pb-4 whitespace-nowrap">
                     {link.text}
                   </p>
                 </div>
@@ -242,15 +245,15 @@ const Footer: StandardFC = () => {
           </section>
         </section>
         <section>
-          <div className="mt-10 flex justify-center text-white ">
+          <div className="mt-10 flex-column sm:flex  justify-center text-white ">
             <div>
-              <p className="text-sm font-light text-white-400 xl:text-center mr-4">
+              <p className="text-sm font-light text-white-400 text-center sm:mr-4 ">
                 {copyRightText}
               </p>
             </div>
             {bottomFooterNavLinks.map((link, index) => (
               <div key={index}>
-                <p className="text-sm font-light text-white-400 xl:text-center mr-4">
+                <p className="text-sm font-light text-white-400 text-center sm:mr-4">
                   {link.text}
                 </p>
               </div>
