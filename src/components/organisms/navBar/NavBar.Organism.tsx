@@ -57,6 +57,7 @@ const NavBar: StandardFC = () => {
   const navLinks = links;
   const categoryLinks = linkGroup.links;
   const linkGroupName = linkGroup.text;
+  const allNavLinks = [...navLinks, ...categoryLinks];
   return (
     <Popover className="relative  z-10 bg-[#206B9E] text-white">
       <div className="mx-auto max-w-7xl px-6  sm:px-8">
@@ -208,9 +209,9 @@ const NavBar: StandardFC = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  {navLinks &&
-                    navLinks.length &&
-                    navLinks.map((link, index) => (
+                  {allNavLinks &&
+                    allNavLinks.length &&
+                    allNavLinks.map((link, index) => (
                       <Link
                         key={link.name}
                         to={link.href}

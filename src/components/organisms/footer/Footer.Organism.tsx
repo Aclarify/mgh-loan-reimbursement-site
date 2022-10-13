@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql, Link } from 'gatsby';
 import React from 'react';
 import { NavigationProps } from '../../../types/content/sanity.content';
 import { StandardFC } from '../../../types/libs/react.lib';
@@ -236,10 +236,13 @@ const Footer: StandardFC = () => {
             {topFooterNavLinks &&
               topFooterNavLinks.length &&
               topFooterNavLinks.map((link, index) => (
-                <div key={index}>
-                  <p className="text-xl sm:text-sm sm:font-medium text-white-400 sm:text-right mr-4 pb-4 whitespace-nowrap">
+                <div
+                  key={index}
+                  className="text-xl sm:text-sm sm:font-medium text-white-400 sm:text-right mr-4 pb-4 whitespace-nowrap"
+                >
+                  <Link key={link.text} to={link.href}>
                     {link.text}
-                  </p>
+                  </Link>
                 </div>
               ))}
           </section>
@@ -252,10 +255,13 @@ const Footer: StandardFC = () => {
               </p>
             </div>
             {bottomFooterNavLinks.map((link, index) => (
-              <div key={index}>
-                <p className="text-sm font-light text-white-400 text-center sm:mr-4">
+              <div
+                key={index}
+                className="text-sm font-light text-white-400 text-center sm:mr-4"
+              >
+                <Link key={link.text} to={link.href}>
                   {link.text}
-                </p>
+                </Link>
               </div>
             ))}
           </div>
