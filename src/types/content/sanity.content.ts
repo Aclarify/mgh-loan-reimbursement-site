@@ -83,3 +83,63 @@ export interface NavigationProps {
     ];
   };
 }
+
+export interface ContentNotes {
+  title: string;
+  content: RichText;
+}
+
+export interface RichText {
+  children: Array<{ text: string }>;
+}
+
+export interface Form {
+  name: string;
+  formControls: FormControl[];
+  button: Button;
+}
+
+export interface FormControl {
+  name: string;
+  label: string;
+  type: FormControlType;
+  placeholder: string;
+  options: string[];
+}
+
+export enum FormControlType {
+  TEXTINOUT = 'textInput',
+  TEXTAREA = 'textArea',
+  SINGLESELECT = 'singleSelect',
+  MULTISELECT = 'multiSelect',
+  RADIO = 'radio',
+  CHECKBOX = 'checkBox',
+}
+
+export interface Button {
+  text: string;
+  type: 'default';
+  href: string;
+}
+export interface MainContentProps {
+  allSanityMainContent: {
+    edges: [
+      {
+        node: {
+          titleText: string;
+          name: string;
+          contentNotes: ContentNotes;
+          subContentTitle: string;
+          subContentTitleNote: string;
+          form: Form;
+          logoText: string;
+          logo: {
+            asset: {
+              gatsbyImageData: IGatsbyImageData;
+            };
+          };
+        };
+      }
+    ];
+  };
+}

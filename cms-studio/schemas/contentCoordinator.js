@@ -9,6 +9,11 @@ export default {
       type: 'string',
     },
     {
+      name: 'title',
+      title: 'Title Text',
+      type: 'string',
+    },
+    {
       title: 'Content',
       name: 'content',
       type: 'array',

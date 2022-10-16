@@ -14,6 +14,9 @@ import textIcon from './textIcon';
 import contentCoordinator from './contentCoordinator';
 import socialMediaIcons from './socialMediaIcons';
 import textIconGroup from './textIconGroup';
+import mainContent from './mainContent';
+import formControl from './formControl';
+import form from './form';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -33,6 +36,9 @@ export default createSchema({
     textLogo,
     textIconGroup,
     socialMediaIcons,
+    mainContent,
+    formControl,
+    form,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

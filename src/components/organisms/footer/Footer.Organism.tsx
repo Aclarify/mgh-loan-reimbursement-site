@@ -238,7 +238,7 @@ const Footer: StandardFC = () => {
               topFooterNavLinks.map((link, index) => (
                 <div
                   key={index}
-                  className="text-xl sm:text-sm sm:font-medium text-white-400 sm:text-right mr-4 pb-4 whitespace-nowrap"
+                  className="text-xl sm:text-sm sm:font-medium text-white-400 md:text-right mr-4 pb-4 whitespace-nowrap"
                 >
                   <Link key={link.text} to={link.href}>
                     {link.text}
