@@ -3,8 +3,8 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import React from 'react';
 import { NavigationProps } from '../../../types/content/sanity.content';
 import { StandardFC } from '../../../types/libs/react.lib';
-import Logo from '../../atoms/Logo/Logo.Atom';
-import TextLogo from '../../atoms/Logo/TextLogo.Atom';
+import Logo from '../../atoms/logo/Logo.Atom';
+import TextLogo from '../../atoms/logo/TextLogo.Atom';
 
 const copyRightText = `Copyright \u00A9 ${new Date().getFullYear()}`;
 const Footer: StandardFC = () => {

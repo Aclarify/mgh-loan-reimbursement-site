@@ -4,12 +4,12 @@ import { Popover, Transition } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
-import Logo from '../../atoms/Logo/Logo.Atom';
+import Logo from '../../atoms/logo/Logo.Atom';
 import { graphql, Link, StaticQuery, useStaticQuery } from 'gatsby';
 import { StandardFC } from '../../../types/libs/react.lib';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { NavigationProps } from '../../../types/content/sanity.content';
-import TextLogo from '../../atoms/Logo/TextLogo.Atom';
+import TextLogo from '../../atoms/logo/TextLogo.Atom';
 
 const NavBar: StandardFC = () => {
   const { allSanityNavigation } = useStaticQuery<NavigationProps>(graphql`
