@@ -7,11 +7,12 @@ import Logo from '../../atoms/logo/Logo.Atom';
 import { PortableText } from '@portabletext/react';
 import Button from '../../atoms/formcontrols/Button.Atom';
 import ComboBox from '../../molecules/formcontrols/ComboBox.Molecule';
+import Form from '../form/Form.Organism';
 
 const Content: StandardFC = () => {
   const { allSanityMainContent } = useStaticQuery<MainContentProps>(graphql`
     query {
-      allSanityMainContent(filter: { name: { eq: "Home Page" } }) {
+      allSanityMainContent(filter: { name: { eq: "Program Page" } }) {
         edges {
           node {
             titleText
@@ -91,8 +92,18 @@ const Content: StandardFC = () => {
         id="subContent"
         className="flex-col fill-white border-l border-r border-b rounded-b-xl p-6 shadow-xl my-16 "
       >
+        <div id="subContentTitle">
+          <span className="text-xl text-[#4B5563] sm:text-2xl sm:font-bold">
+            {subContentTitle}
+          </span>
+
+          <span className="text-sm text-[#4B5563] sm:text-l ">
+            {subContentTitleNote}
+          </span>
+        </div>
         <div className="my-6">
-          <ComboBox
+          <Form form={contentConfig.form} />
+          {/* <ComboBox
             label={formControl.label}
             name={formControl.name}
             selectedValue={selectedProgram}
@@ -101,11 +112,11 @@ const Content: StandardFC = () => {
               value: option,
             }))}
             onChange={onProgramChange}
-          ></ComboBox>
+          ></ComboBox> */}
         </div>
-        <div className="flex justify-center">
+        {/* <div className="flex justify-center">
           <Button text={contentConfig.form.button.text}></Button>
-        </div>
+        </div> */}
       </div>
       <div id="contentFooter" className="mt-4">
         <div className="flex-col justify-center">
