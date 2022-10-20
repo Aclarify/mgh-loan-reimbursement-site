@@ -27,12 +27,12 @@ const ComboBox: React.FC<Props> = ({
         });
   return (
     <Combobox as="div" value={selectedValue} onChange={onChange}>
-      <Combobox.Label className="block text-sm font-medium text-[#4B5563]">
+      <Combobox.Label className="block text-sm font-bold text-[#4B5563] mb-2">
         {label}
       </Combobox.Label>
       <div className="relative mt-1">
         <Combobox.Input
-          className="w-full rounded-md border border-[#ABADC6] bg-white py-2 pl-3 pr-10 shadow-sm focus:border-[#206B9E] focus:outline-none focus:ring-1 focus:ring-[#206B9E] sm:text-sm"
+          className="w-full rounded-md border border-[#ABADC6] bg-white py-2 pl-3 pr-10 shadow-sm focus:border-mgh-primary focus:outline-none focus:ring-1 focus:ring-mgh-primary sm:text-sm"
           displayValue={selectedValue}
         />
 
@@ -52,7 +52,7 @@ const ComboBox: React.FC<Props> = ({
                 className={({ active }) =>
                   clsx(
                     'relative cursor-default select-none py-2 pl-3 pr-9',
-                    active ? 'bg-[#206B9E] text-white' : 'text-[#ABADC6]'
+                    active ? 'bg-mgh-primary text-white' : 'text-[#ABADC6]'
                   )
                 }
               >
@@ -71,7 +71,7 @@ const ComboBox: React.FC<Props> = ({
                       <span
                         className={clsx(
                           'absolute inset-y-0 right-0 flex items-center pr-4',
-                          active ? 'text-white' : 'text-[#206B9E]'
+                          active ? 'text-white' : 'text-mgh-primary'
                         )}
                       >
                         <CheckIcon className="h-5 w-5" aria-hidden="true" />

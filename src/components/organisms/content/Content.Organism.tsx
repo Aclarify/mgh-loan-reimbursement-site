@@ -39,7 +39,10 @@ const Content: StandardFC = () => {
                 label
                 type
                 placeholder
-                options
+                options {
+                  label
+                  value
+                }
               }
               button {
                 text
@@ -79,7 +82,7 @@ const Content: StandardFC = () => {
     setSelectedProgram(selectedValue);
   };
   return (
-    <div className="container mx-auto flex-col justify-center  max-w-md ">
+    <div className="flex-col justify-center">
       <div id="contentHeader" className="flex-col text-center my-8">
         <span className="text-xl text-[#4B5563] sm:text-2xl sm:font-bold">
           {contentTitle}
@@ -93,7 +96,7 @@ const Content: StandardFC = () => {
         className="flex-col fill-white border-l border-r border-b rounded-b-xl p-6 shadow-xl my-16 "
       >
         <div id="subContentTitle">
-          <span className="text-xl text-[#4B5563] sm:text-2xl sm:font-bold">
+          <span className="block text-xl text-[#4B5563] sm:text-2xl sm:font-bold">
             {subContentTitle}
           </span>
 
@@ -103,20 +106,7 @@ const Content: StandardFC = () => {
         </div>
         <div className="my-6">
           <Form form={contentConfig.form} />
-          {/* <ComboBox
-            label={formControl.label}
-            name={formControl.name}
-            selectedValue={selectedProgram}
-            options={formControl.options.map((option) => ({
-              label: option,
-              value: option,
-            }))}
-            onChange={onProgramChange}
-          ></ComboBox> */}
         </div>
-        {/* <div className="flex justify-center">
-          <Button text={contentConfig.form.button.text}></Button>
-        </div> */}
       </div>
       <div id="contentFooter" className="mt-4">
         <div className="flex-col justify-center">

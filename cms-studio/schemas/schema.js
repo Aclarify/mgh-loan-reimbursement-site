@@ -17,6 +17,7 @@ import textIconGroup from './textIconGroup';
 import mainContent from './mainContent';
 import formControl from './formControl';
 import form from './form';
+import formControlOptions from './formControlOptions';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -39,6 +40,7 @@ export default createSchema({
     mainContent,
     formControl,
     form,
+    formControlOptions,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

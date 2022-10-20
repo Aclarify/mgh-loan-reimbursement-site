@@ -20,17 +20,14 @@ interface FormProps {
 const FormBuilder = ({ form }: FormProps) => {
   return (
     <>
-      <div>
+      <div className="flex-col space-y-5">
         {form.formControls.map((formControl) => {
           const formFieldType = formControl.type;
           const componentToRender = FieldToComponentsMap[formFieldType];
           const formControlProps = {
             name: formControl.name,
             label: formControl.label,
-            options: formControl.options.map((option) => ({
-              label: option,
-              value: option,
-            })),
+            options: formControl.options,
             placeholder: formControl.placeholder,
           };
           return componentToRender(formControlProps);

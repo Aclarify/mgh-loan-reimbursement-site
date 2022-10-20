@@ -7,10 +7,8 @@ import Content from '../components/organisms/content/Content.Organism';
 const IndexPage = () => {
   return (
     <DefaultLayout>
-      <section className={clsx('h-full')}>
-        <div className="container max-w-md mx-auto">
-          <Content></Content>
-        </div>
+      <section className="container max-w-2xl mx-auto">
+        <Content></Content>
       </section>
     </DefaultLayout>
   );
