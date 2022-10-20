@@ -10,6 +10,9 @@ module.exports = {
         'mgh-primary': '#206B9E',
         'mgh-primary-dark': '#024775',
       },
+      fontFamily: {
+        inter: ['Inter'],
+      },
     },
   },
   plugins: [],

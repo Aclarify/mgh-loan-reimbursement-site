@@ -33,7 +33,7 @@ const ComboBox: React.FC<Props> = ({
       <div className="relative mt-1">
         <Combobox.Input
           className="w-full rounded-md border border-[#ABADC6] bg-white py-2 pl-3 pr-10 shadow-sm focus:border-mgh-primary focus:outline-none focus:ring-1 focus:ring-mgh-primary sm:text-sm"
-          displayValue={selectedValue}
+          // displayValue={selectedValue}
         />
 
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
@@ -44,10 +44,10 @@ const ComboBox: React.FC<Props> = ({
         </Combobox.Button>
 
         {filteredOption.length > 0 && (
-          <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+          <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 font-inter-500 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
             {filteredOption.map((option) => (
               <Combobox.Option
-                key={option.label}
+                key={option.value}
                 value={option.value}
                 className={({ active }) =>
                   clsx(
