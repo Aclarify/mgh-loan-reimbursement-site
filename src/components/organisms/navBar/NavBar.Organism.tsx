@@ -1,27 +1,15 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment } from 'react';
 import { Popover, Transition } from '@headlessui/react';
-import {
-  ArrowPathIcon,
-  Bars3Icon,
-  BookmarkSquareIcon,
-  CalendarIcon,
-  ChartBarIcon,
-  CursorArrowRaysIcon,
-  LifebuoyIcon,
-  PhoneIcon,
-  PlayIcon,
-  ShieldCheckIcon,
-  Squares2X2Icon,
-  XMarkIcon,
-} from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
-import Logo from '../../atoms/Logo/Logo.Atom';
+import Logo from '../../atoms/logo/Logo.Atom';
 import { graphql, Link, StaticQuery, useStaticQuery } from 'gatsby';
 import { StandardFC } from '../../../types/libs/react.lib';
 import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { NavigationProps } from '../../../types/content/sanity.content';
+import TextLogo from '../../atoms/logo/TextLogo.Atom';
 
 const NavBar: StandardFC = () => {
   const { allSanityNavigation } = useStaticQuery<NavigationProps>(graphql`
@@ -46,24 +34,34 @@ const NavBar: StandardFC = () => {
               href
               type
             }
+            linkGroup {
+              name
+              text
+              links {
+                name
+                text
+                href
+              }
+            }
+            textLogo {
+              titleLine1
+              titleLine2
+            }
           }
         }
       }
     }
   `);
   const headerConfig = allSanityNavigation.edges[0].node;
-  const { logo, links, cta } = headerConfig;
-  const aboutLink = links.find((link) =>
-    link.name.toLowerCase().includes('about')
-  );
-  const categoryLinks = links.filter(
-    (link) => !link.name.toLowerCase().includes('about')
-  );
-
+  const { logo, links, linkGroup, textLogo } = headerConfig;
+  const navLinks = links;
+  const categoryLinks = linkGroup.links;
+  const linkGroupName = linkGroup.text;
+  const allNavLinks = [...navLinks, ...categoryLinks];
   return (
-    <Popover className="relative bg-white z-10">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6">
-        <div className="flex items-center justify-between border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+    <Popover className="relative  z-10 bg-[#206B9E] text-white">
+      <div className="mx-auto max-w-7xl px-6  sm:px-8">
+        <div className="flex items-center justify-between  py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start flex-shrink">
             <span className="sr-only">Mass League</span>
             <div
@@ -75,9 +73,11 @@ const NavBar: StandardFC = () => {
                 'pr-8',
                 'md:pr-0'
               )}
-              style={{ maxWidth: '260px' }}
             >
-              <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
+              <TextLogo
+                titleLine1={textLogo.titleLine1}
+                titleLine2={textLogo.titleLine2}
+              />
             </div>
           </div>
           <div className="-my-2 -mr-2 md:hidden">
@@ -91,37 +91,38 @@ const NavBar: StandardFC = () => {
             as="nav"
             className="hidden space-x-10 md:justify-end md:flex md:flex-grow"
           >
-            {aboutLink && (
-              <Link
-                to={aboutLink.href}
-                className={clsx(
-                  'text-base',
-                  'font-medium',
-                  'text-gray-500',
-                  'hover:text-gray-900',
-                  'outline-none',
-                  'ring-0'
-                )}
-              >
-                {aboutLink.text}
-              </Link>
-            )}
+            {navLinks &&
+              navLinks.length &&
+              navLinks.map((link, index) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className={clsx(
+                    'text-base',
+                    'font-medium',
+                    'outline-none',
+                    'ring-0'
+                  )}
+                >
+                  {link.text}
+                </Link>
+              ))}
             <Popover className="relative">
               {({ open }) => (
                 <>
                   <Popover.Button
                     className={clsx(
-                      open ? 'text-gray-900 ' : 'text-gray-500 ',
-                      'group inline-flex items-center rounded-md bg-white text-base font-medium hover:text-gray-900 outline-none ring-0'
+                      open ? 'text-white-900 ' : 'text-white-500 ',
+                      'group inline-flex items-center  text-base font-medium '
                     )}
                   >
-                    <span>Programs</span>
+                    <span>{linkGroupName}</span>
                     <ChevronDownIcon
                       className={clsx(
                         open
-                          ? 'text-gray-600 rotate-180'
-                          : 'text-gray-400 rotate-0',
-                        'ml-2 h-5 w-5 group-hover:text-gray-500 duration-200 transition-all transform'
+                          ? 'text-white-600 rotate-180'
+                          : 'text-white-400 rotate-0',
+                        'ml-2 h-5 w-5 group-hover:text-white-500 duration-200 transition-all transform'
                       )}
                       aria-hidden="true"
                     />
@@ -165,34 +166,10 @@ const NavBar: StandardFC = () => {
               )}
             </Popover>
           </Popover.Group>
-          <div className="hidden items-center justify-end md:flex md:flex-shrink">
-            {cta && (
-              <Link
-                to={cta.href}
-                className={clsx(
-                  'ml-8',
-                  'inline-flex',
-                  'items-center',
-                  'justify-center',
-                  'whitespace-nowrap',
-                  'rounded-md',
-                  'border',
-                  'border-transparent',
-                  'bg-blue-600',
-                  'px-4',
-                  'py-2',
-                  'text-base',
-                  'font-medium',
-                  'text-white',
-                  'shadow-sm',
-                  'hover:bg-indigo-700'
-                )}
-              >
-                {cta.text}
-              </Link>
-            )}
-          </div>
         </div>
+      </div>
+      <div id="logoContainer" className="flex justify-center ">
+        {/* <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} /> */}
       </div>
 
       <Transition
@@ -232,62 +209,24 @@ const NavBar: StandardFC = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  {/* {[solutions].map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-50"
-                    >
-                      <item.icon
-                        className="h-6 w-6 flex-shrink-0 text-blue-600"
-                        aria-hidden="true"
-                      />
-                      <span className="ml-3 text-base font-medium text-gray-900">
-                        {item.name}
-                      </span>
-                    </a>
-                  ))} */}
+                  {allNavLinks &&
+                    allNavLinks.length &&
+                    allNavLinks.map((link, index) => (
+                      <Link
+                        key={link.name}
+                        to={link.href}
+                        className={clsx(
+                          'text-black',
+                          'text-base',
+                          'font-medium',
+                          'outline-none',
+                          'ring-0'
+                        )}
+                      >
+                        {link.text}
+                      </Link>
+                    ))}
                 </nav>
-              </div>
-            </div>
-            <div className="space-y-6 py-6 px-5">
-              <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                <a
-                  href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Pricing
-                </a>
-
-                <a
-                  href="#"
-                  className="text-base font-medium text-gray-900 hover:text-gray-700"
-                >
-                  Docs
-                </a>
-                {/* {resources.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-base font-medium text-gray-900 hover:text-gray-700"
-                  >
-                    {item.name}
-                  </a>
-                ))} */}
-              </div>
-              <div>
-                <a
-                  href="#"
-                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-                >
-                  Sign up
-                </a>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{''}
-                  <a href="#" className="text-blue-600 hover:text-blue-500">
-                    Sign in
-                  </a>
-                </p>
               </div>
             </div>
           </div>
