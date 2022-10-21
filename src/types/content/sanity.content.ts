@@ -122,24 +122,22 @@ export interface Button {
   href: string;
 }
 export interface MainContentProps {
-  allSanityMainContent: {
-    edges: [
-      {
-        node: {
-          titleText: string;
-          name: string;
-          contentNotes: ContentNotes;
-          subContentTitle: string;
-          subContentTitleNote: string;
-          form: Form;
-          logoText: string;
-          logo: {
-            asset: {
-              gatsbyImageData: IGatsbyImageData;
-            };
+  edges: [
+    {
+      node: {
+        titleText: string;
+        name: string;
+        contentNotes: ContentNotes;
+        subContentTitle: string;
+        subContentTitleNote: string;
+        form: Form;
+        logoText: string;
+        logo: {
+          asset: {
+            gatsbyImageData: IGatsbyImageData;
           };
         };
-      }
-    ];
-  };
+      };
+    }
+  ];
 }

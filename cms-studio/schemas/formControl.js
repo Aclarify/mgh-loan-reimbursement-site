@@ -1,3 +1,5 @@
+import formControlOptions from './formControlOptions';
+
 export default {
   name: 'formControl',
   title: 'Form Control',
@@ -15,7 +17,7 @@ export default {
     },
     {
       name: 'placeholder',
-      title: 'Place holder text',
+      title: 'Place holder/Default Value',
       type: 'string',
     },
     {
@@ -37,7 +39,12 @@ export default {
       name: 'options',
       title: 'List of Options',
       type: 'array',
-      of: [{ type: 'string' }],
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'formControlOptions' }],
+        },
+      ],
     },
   ],
 };

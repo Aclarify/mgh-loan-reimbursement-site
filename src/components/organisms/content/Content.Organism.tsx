@@ -7,57 +7,15 @@ import Logo from '../../atoms/logo/Logo.Atom';
 import { PortableText } from '@portabletext/react';
 import Button from '../../atoms/formcontrols/Button.Atom';
 import ComboBox from '../../molecules/formcontrols/ComboBox.Molecule';
+import Form from '../form/Form.Organism';
 
-const Content: StandardFC = () => {
-  const { allSanityMainContent } = useStaticQuery<MainContentProps>(graphql`
-    query {
-      allSanityMainContent(filter: { name: { eq: "Home Page" } }) {
-        edges {
-          node {
-            titleText
-            name
-            contentNotes {
-              title
-              content {
-                _type
-                style
-                children {
-                  _key
-                  _type
-                  text
-                  marks
-                }
-              }
-            }
-            subContentTitle
-            subContentTitleNote
-            form {
-              name
-              formControls {
-                name
-                label
-                type
-                placeholder
-                options
-              }
-              button {
-                text
-                type
-                href
-              }
-            }
-            logoText
-            logo {
-              asset {
-                gatsbyImageData
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-  const contentConfig = allSanityMainContent.edges[0].node;
+interface Props {
+  content: MainContentProps;
+}
+
+const Content: StandardFC<Props> = (props) => {
+  console.log('props.content', props.content);
+  const contentConfig = props.content.edges[0].node;
   const {
     titleText,
     name,
@@ -78,12 +36,12 @@ const Content: StandardFC = () => {
     setSelectedProgram(selectedValue);
   };
   return (
-    <div className="container mx-auto flex-col justify-center  max-w-md ">
+    <div className="flex-col justify-center">
       <div id="contentHeader" className="flex-col text-center my-8">
-        <span className="text-xl text-[#4B5563] sm:text-2xl sm:font-bold">
+        <span className="text-3xl font-inter-700 text-[#4B5563] sm:text-4xl sm:font-bold">
           {contentTitle}
         </span>
-        <div className="mt-4 text-[#6B7280] mx-4 sm:mx-0">
+        <div className="mt-4 font-inter-400 text-[#6B7280] mx-4 sm:mx-0">
           <PortableText value={contentConfig.contentNotes[0].content} />
         </div>
       </div>
@@ -91,20 +49,17 @@ const Content: StandardFC = () => {
         id="subContent"
         className="flex-col fill-white border-l border-r border-b rounded-b-xl p-6 shadow-xl my-16 "
       >
-        <div className="my-6">
-          <ComboBox
-            label={formControl.label}
-            name={formControl.name}
-            selectedValue={selectedProgram}
-            options={formControl.options.map((option) => ({
-              label: option,
-              value: option,
-            }))}
-            onChange={onProgramChange}
-          ></ComboBox>
+        <div id="subContentTitle">
+          <span className="block font-inter-700 text-l text-[#4B5563] sm:text-2xl sm:font-bold">
+            {subContentTitle}
+          </span>
+
+          <span className=" font-inter-400 text-[#6B7280] sm:text-l ">
+            {subContentTitleNote}
+          </span>
         </div>
-        <div className="flex justify-center">
-          <Button text={contentConfig.form.button.text}></Button>
+        <div className="my-6">
+          <Form form={contentConfig.form} />
         </div>
       </div>
       <div id="contentFooter" className="mt-4">

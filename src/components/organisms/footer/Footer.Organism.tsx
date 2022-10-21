@@ -122,7 +122,7 @@ const Footer: StandardFC = () => {
 
   return (
     <footer
-      className={clsx('bg-[#206B9E]', 'border-t', 'border-gray-200')}
+      className={clsx('bg-mgh-primary', 'border-t', 'border-gray-200')}
       aria-labelledby="footer-heading"
     >
       <h2 id="footer-heading" className="sr-only">

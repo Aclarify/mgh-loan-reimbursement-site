@@ -59,7 +59,7 @@ const NavBar: StandardFC = () => {
   const linkGroupName = linkGroup.text;
   const allNavLinks = [...navLinks, ...categoryLinks];
   return (
-    <Popover className="relative  z-10 bg-[#206B9E] text-white">
+    <Popover className="relative  z-10 bg-mgh-primary text-white">
       <div className="mx-auto max-w-7xl px-6  sm:px-8">
         <div className="flex items-center justify-between  py-6 md:justify-start md:space-x-10">
           <div className="flex justify-start flex-shrink">
