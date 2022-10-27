@@ -121,153 +121,157 @@ const Footer: StandardFC = () => {
   });
 
   return (
-    <footer
-      className={clsx('bg-mgh-primary', 'border-t', 'border-gray-200')}
-      aria-labelledby="footer-heading"
-    >
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <div className="container mx-auto max-w-7xl py-6 px-6  lg:py-16 lg:px-8 ">
-        <section
-          id="topFooter"
-          className="flex-column md:flex lg:flex text-white justify-between"
-        >
-          <section id="desc" className="basis-1/2">
-            <div id="titleText">
-              <TextLogo
-                titleLine1={textLogo.titleLine1}
-                titleLine2={textLogo.titleLine2}
-              />
-            </div>
-            <div id="programDesc">
-              <p className="text-xs sm:w-3/4 leading-5">{textLogo.titleNote}</p>
-            </div>
-            <div id="mediaIcons" className="flex space-x-6 my-5">
-              {mediaIconList.map((item) => {
-                const socialMedia = socialMediaIconsMap.get(item.icon);
-                if (socialMedia) {
-                  return (
-                    <a key={item.icon} href={item.href}>
-                      <span className="sr-only">{item.icon}</span>
-                      <socialMedia.icon
-                        className="h-6 w-6"
-                        aria-hidden="true"
+    <div className="bg-mgh-primary">
+      <footer
+        className={clsx('border-t', 'border-gray-200')}
+        aria-labelledby="footer-heading"
+      >
+        <h2 id="footer-heading" className="sr-only">
+          Footer
+        </h2>
+        <div className="container mx-auto max-w-7xl py-6 px-6  lg:py-16 lg:px-8  ">
+          <section
+            id="topFooter"
+            className="flex-column md:flex lg:flex text-white justify-between"
+          >
+            <section id="desc" className="basis-1/2">
+              <div id="titleText">
+                <TextLogo
+                  titleLine1={textLogo.titleLine1}
+                  titleLine2={textLogo.titleLine2}
+                />
+              </div>
+              <div id="programDesc">
+                <p className="text-xs sm:w-3/4 leading-5">
+                  {textLogo.titleNote}
+                </p>
+              </div>
+              <div id="mediaIcons" className="flex space-x-6 my-5">
+                {mediaIconList.map((item) => {
+                  const socialMedia = socialMediaIconsMap.get(item.icon);
+                  if (socialMedia) {
+                    return (
+                      <a key={item.icon} href={item.href}>
+                        <span className="sr-only">{item.icon}</span>
+                        <socialMedia.icon
+                          className="h-6 w-6"
+                          aria-hidden="true"
+                        />
+                      </a>
+                    );
+                  }
+                })}
+              </div>
+            </section>
+            <section id="contactDtls" className="flex-col  w-64">
+              <div id="contactTitle" className="mb-6">
+                <span className="text-xl sm:text-sm sm:font-medium">
+                  {contactIconGroup.text}
+                </span>
+              </div>
+              <div id="contactDtlsContainer" className="flex-col  ">
+                <div className="flex items-center ">
+                  <div id="phoneIcon" className="pr-4">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path
+                        d="M0 1C0 0.447715 0.447715 0 1 0H3.15287C3.64171 0 4.0589 0.353413 4.13927 0.835601L4.87858 5.27147C4.95075 5.70451 4.73206 6.13397 4.3394 6.3303L2.79126 7.10437C3.90756 9.87832 6.12168 12.0924 8.89563 13.2087L9.6697 11.6606C9.86603 11.2679 10.2955 11.0492 10.7285 11.1214L15.1644 11.8607C15.6466 11.9411 16 12.3583 16 12.8471V15C16 15.5523 15.5523 16 15 16H13C5.8203 16 0 10.1797 0 3V1Z"
+                        fill="white"
                       />
-                    </a>
-                  );
-                }
-              })}
-            </div>
-          </section>
-          <section id="contactDtls" className="flex-col  w-64">
-            <div id="contactTitle" className="mb-6">
-              <span className="text-xl sm:text-sm sm:font-medium">
-                {contactIconGroup.text}
-              </span>
-            </div>
-            <div id="contactDtlsContainer" className="flex-col  ">
-              <div className="flex items-center ">
-                <div id="phoneIcon" className="pr-4">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path
-                      d="M0 1C0 0.447715 0.447715 0 1 0H3.15287C3.64171 0 4.0589 0.353413 4.13927 0.835601L4.87858 5.27147C4.95075 5.70451 4.73206 6.13397 4.3394 6.3303L2.79126 7.10437C3.90756 9.87832 6.12168 12.0924 8.89563 13.2087L9.6697 11.6606C9.86603 11.2679 10.2955 11.0492 10.7285 11.1214L15.1644 11.8607C15.6466 11.9411 16 12.3583 16 12.8471V15C16 15.5523 15.5523 16 15 16H13C5.8203 16 0 10.1797 0 3V1Z"
-                      fill="white"
-                    />
-                  </svg>
+                    </svg>
+                  </div>
+                  <div id="phoneNumber">
+                    <p className="text-sm font-light text-white-400 xl:text-left mr-4  ">
+                      {phoneNumber}
+                    </p>
+                  </div>
                 </div>
-                <div id="phoneNumber">
-                  <p className="text-sm font-light text-white-400 xl:text-left mr-4  ">
-                    {phoneNumber}
-                  </p>
+                <div className="flex items-center my-4">
+                  <div id="emailIcon" className=" pr-4">
+                    <svg
+                      width="16"
+                      height="12"
+                      viewBox="0 0 16 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M0.00333343 1.88355L7.99995 5.88186L15.9967 1.8835C15.9363 0.833152 15.0655 0 14 0H2C0.934518 0 0.0636347 0.833179 0.00333343 1.88355Z"
+                        fill="white"
+                      />
+                      <path
+                        d="M16 4.1179L7.99995 8.11793L0 4.11796V10C0 11.1046 0.895431 12 2 12H14C15.1046 12 16 11.1046 16 10V4.1179Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div id="emailID">
+                    <p className="text-sm font-light text-white-400 xl:text-left mr-4 ">
+                      {emailID}
+                    </p>
+                  </div>
+                </div>
+                <div className="flex items-center my-4">
+                  <div id="addressIcon" className=" pr-4">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M5.05025 4.05025C7.78392 1.31658 12.2161 1.31658 14.9497 4.05025C17.6834 6.78392 17.6834 11.2161 14.9497 13.9497L10 18.8995L5.05025 13.9497C2.31658 11.2161 2.31658 6.78392 5.05025 4.05025ZM10 11C11.1046 11 12 10.1046 12 9C12 7.89543 11.1046 7 10 7C8.89543 7 8 7.89543 8 9C8 10.1046 8.89543 11 10 11Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </div>
+                  <div id="addressText">
+                    <p className="text-sm font-light text-white-400 xl:text-left mr-4 ">
+                      {address}
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center my-4">
-                <div id="emailIcon" className=" pr-4">
-                  <svg
-                    width="16"
-                    height="12"
-                    viewBox="0 0 16 12"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
+            </section>
+            <section id="topFooterNav">
+              {topFooterNavLinks &&
+                topFooterNavLinks.length &&
+                topFooterNavLinks.map((link, index) => (
+                  <div
+                    key={index}
+                    className="text-xl sm:text-sm sm:font-medium text-white-400 md:text-right mr-4 pb-4 whitespace-nowrap"
                   >
-                    <path
-                      d="M0.00333343 1.88355L7.99995 5.88186L15.9967 1.8835C15.9363 0.833152 15.0655 0 14 0H2C0.934518 0 0.0636347 0.833179 0.00333343 1.88355Z"
-                      fill="white"
-                    />
-                    <path
-                      d="M16 4.1179L7.99995 8.11793L0 4.11796V10C0 11.1046 0.895431 12 2 12H14C15.1046 12 16 11.1046 16 10V4.1179Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-                <div id="emailID">
-                  <p className="text-sm font-light text-white-400 xl:text-left mr-4 ">
-                    {emailID}
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-center my-4">
-                <div id="addressIcon" className=" pr-4">
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
-                      d="M5.05025 4.05025C7.78392 1.31658 12.2161 1.31658 14.9497 4.05025C17.6834 6.78392 17.6834 11.2161 14.9497 13.9497L10 18.8995L5.05025 13.9497C2.31658 11.2161 2.31658 6.78392 5.05025 4.05025ZM10 11C11.1046 11 12 10.1046 12 9C12 7.89543 11.1046 7 10 7C8.89543 7 8 7.89543 8 9C8 10.1046 8.89543 11 10 11Z"
-                      fill="white"
-                    />
-                  </svg>
-                </div>
-                <div id="addressText">
-                  <p className="text-sm font-light text-white-400 xl:text-left mr-4 ">
-                    {address}
-                  </p>
-                </div>
-              </div>
-            </div>
+                    <Link key={link.text} to={link.href}>
+                      {link.text}
+                    </Link>
+                  </div>
+                ))}
+            </section>
           </section>
-          <section id="topFooterNav">
-            {topFooterNavLinks &&
-              topFooterNavLinks.length &&
-              topFooterNavLinks.map((link, index) => (
+          <section>
+            <div className="mt-10 flex-column sm:flex  justify-center text-white ">
+              <div>
+                <p className="text-sm font-light text-white-400 text-center sm:mr-4 ">
+                  {copyRightText}
+                </p>
+              </div>
+              {bottomFooterNavLinks.map((link, index) => (
                 <div
                   key={index}
-                  className="text-xl sm:text-sm sm:font-medium text-white-400 md:text-right mr-4 pb-4 whitespace-nowrap"
+                  className="text-sm font-light text-white-400 text-center sm:mr-4"
                 >
                   <Link key={link.text} to={link.href}>
                     {link.text}
                   </Link>
                 </div>
               ))}
-          </section>
-        </section>
-        <section>
-          <div className="mt-10 flex-column sm:flex  justify-center text-white ">
-            <div>
-              <p className="text-sm font-light text-white-400 text-center sm:mr-4 ">
-                {copyRightText}
-              </p>
             </div>
-            {bottomFooterNavLinks.map((link, index) => (
-              <div
-                key={index}
-                className="text-sm font-light text-white-400 text-center sm:mr-4"
-              >
-                <Link key={link.text} to={link.href}>
-                  {link.text}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-    </footer>
+          </section>
+        </div>
+      </footer>
+    </div>
   );
 };
 

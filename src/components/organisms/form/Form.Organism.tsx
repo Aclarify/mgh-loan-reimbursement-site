@@ -15,9 +15,10 @@ const FieldToComponentsMap: Record<FormControlType, any> = {
 
 interface FormProps {
   form: Form;
+  onSubmit: Function;
 }
 
-const FormBuilder = ({ form }: FormProps) => {
+const FormBuilder = ({ form, onSubmit }: FormProps) => {
   return (
     <>
       <div className="flex-col space-y-5">
@@ -34,7 +35,7 @@ const FormBuilder = ({ form }: FormProps) => {
         })}
       </div>
       <div className="flex justify-center mt-6">
-        <Button text={form.button.text}></Button>
+        <Button text={form.button.text} onClick={onSubmit}></Button>
       </div>
     </>
   );

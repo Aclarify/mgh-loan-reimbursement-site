@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
 import clsx from 'clsx';
-import { useStaticQuery, graphql, Link } from 'gatsby';
+import { navigate } from 'gatsby';
 import { MainContentProps } from '../../../types/content/sanity.content';
 import { StandardFC } from '../../../types/libs/react.lib';
 import Logo from '../../atoms/logo/Logo.Atom';
 import { PortableText } from '@portabletext/react';
-import Button from '../../atoms/formcontrols/Button.Atom';
-import ComboBox from '../../molecules/formcontrols/ComboBox.Molecule';
 import Form from '../form/Form.Organism';
 
 interface Props {
@@ -26,7 +24,7 @@ const Content: StandardFC<Props> = (props) => {
     logoText,
     logo,
   } = contentConfig;
-  const contentTitle = contentConfig.contentNotes[0].title;
+  const contentTitle = contentConfig.titleText;
   const footerlogoText = contentConfig.logoText;
   const formControl = contentConfig.form.formControls[0];
   const [selectedProgram, setSelectedProgram] = useState(
@@ -35,6 +33,10 @@ const Content: StandardFC<Props> = (props) => {
   const onProgramChange = (selectedValue: string) => {
     setSelectedProgram(selectedValue);
   };
+  function transitToProgram() {
+    navigate('/program-eligibility');
+  }
+
   return (
     <div className="flex-col justify-center">
       <div id="contentHeader" className="flex-col text-center my-8">
@@ -59,7 +61,7 @@ const Content: StandardFC<Props> = (props) => {
           </span>
         </div>
         <div className="my-6">
-          <Form form={contentConfig.form} />
+          <Form form={contentConfig.form} onSubmit={transitToProgram} />
         </div>
       </div>
       <div id="contentFooter" className="mt-4">
