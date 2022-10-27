@@ -40,7 +40,7 @@ const Content: StandardFC<Props> = (props) => {
   return (
     <div className="flex-col justify-center">
       <div id="contentHeader" className="flex-col text-center my-8">
-        <span className="text-3xl font-inter-700 text-[#4B5563] sm:text-4xl sm:font-bold">
+        <span className="text-3xl font-bold font-inter-700 text-[#4B5563] sm:text-4xl ">
           {contentTitle}
         </span>
         <div className="mt-4 font-inter-400 text-[#6B7280] mx-4 sm:mx-0">

@@ -60,22 +60,84 @@ const NavBar: StandardFC = () => {
   const allNavLinks = [...navLinks, ...categoryLinks];
   return (
     <div className="lg:relative">
-      <div className="hidden lg:h-1/5 lg:block">
+      <div className="hidden lg:block">
         <svg
           id="visual"
           viewBox="0 0 1000 200"
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
         >
+          <defs>
+            <pattern
+              id="img1"
+              patternUnits="userSpaceOnUse"
+              width="100"
+              height="100"
+            >
+              <image
+                href="favicon-32x32.png"
+                x="0"
+                y="0"
+                width="100"
+                height="100"
+              />
+            </pattern>
+          </defs>
           <path
-            d="M0 146L111.2 131.7C222.3 117.3 444.7 88.7 666.8 104.2C889 119.7 1111 179.3 1333.2 197.2C1555.3 215 1777.7 191 1888.8 179L2000 167L2000 0L1888.8 0C1777.7 0 1555.3 0 1333.2 0C1111 0 889 0 666.8 0C444.7 0 222.3 0 111.2 0L0 0Z"
+            d="M0 131L42.7 119.8C85.3 108.7 170.7 86.3 256 78.2C341.3 70 426.7 76 512 89.2C597.3 102.3 682.7 122.7 768 131.7C853.3 140.7 938.7 138.3 981.3 137.2L1024 136L1024 0L981.3 0C938.7 0 853.3 0 768 0C682.7 0 597.3 0 512 0C426.7 0 341.3 0 256 0C170.7 0 85.3 0 42.7 0L0 0Z"
+            fill="#206B9E"
+            //fill="url(#img1)"
+            stroke-linecap="round"
+            stroke-linejoin="miter"
+          ></path>
+        </svg>
+      </div>
+      <div className=" block sm:hidden">
+        <svg
+          id="visual"
+          viewBox="0 0 600 300"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+        >
+          <path
+            d="M0 202L33.3 197C66.7 192 133.3 182 200 197.5C266.7 213 333.3 254 400 268.3C466.7 282.7 533.3 270.3 566.7 264.2L600 258L600 0L566.7 0C533.3 0 466.7 0 400 0C333.3 0 266.7 0 200 0C133.3 0 66.7 0 33.3 0L0 0Z"
             fill="#206B9E"
             stroke-linecap="round"
             stroke-linejoin="miter"
           ></path>
         </svg>
       </div>
-      <div className="lg:absolute lg:top-8 w-full bg-mgh-primary lg:bg-transparent">
+      <div className="hidden sm:block lg:hidden">
+        <svg
+          id="visual"
+          viewBox="0 0 900 300"
+          xmlns="http://www.w3.org/2000/svg"
+          version="1.1"
+        >
+          <path
+            d="M0 151L50 147.3C100 143.7 200 136.3 300 148C400 159.7 500 190.3 600 201C700 211.7 800 202.3 850 197.7L900 193L900 0L850 0C800 0 700 0 600 0C500 0 400 0 300 0C200 0 100 0 50 0L0 0Z"
+            fill="#206B9E"
+            stroke-linecap="round"
+            stroke-linejoin="miter"
+          ></path>
+        </svg>
+      </div>
+
+      <div className="relative hidden  ">
+        <div
+          className={clsx(
+            'relative',
+            'h-16',
+            'sm:h-24',
+            'pr-8',
+            'md:pr-0',
+            'mx-auto'
+          )}
+        >
+          <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
+        </div>
+      </div>
+      <div className="absolute top-0 lg:top-3 w-full lg:bg-transparent">
         <Popover className="relative z-10  text-white ">
           <div className="mx-auto max-w-7xl px-6  sm:px-8 ">
             <div className="flex items-center justify-between  py-6 md:justify-start md:space-x-10">
@@ -250,20 +312,6 @@ const NavBar: StandardFC = () => {
             </Popover.Panel>
           </Transition>
         </Popover>
-        <div className="hidden lg:flex items-center lg:mt-5">
-          <div
-            className={clsx(
-              'relative',
-              'h-16',
-              'sm:h-24',
-              'pr-8',
-              'md:pr-0',
-              'mx-auto'
-            )}
-          >
-            <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
-          </div>
-        </div>
       </div>
     </div>
   );

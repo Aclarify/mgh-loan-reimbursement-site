@@ -10,9 +10,7 @@ const DefaultLayout: StandardFC<DefaultLayoutProps> = ({ children }) => {
   return (
     <>
       <NavBar />
-      <main className={clsx('h-full', 'w-full', 'relative', 'min-h-screen')}>
-        {children}
-      </main>
+      <main className={clsx('h-full', 'w-full', 'relative')}>{children}</main>
       <Footer />
     </>
   );
