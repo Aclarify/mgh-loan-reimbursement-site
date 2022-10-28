@@ -40,10 +40,10 @@ const Content: StandardFC<Props> = (props) => {
   return (
     <div className="flex-col justify-center">
       <div id="contentHeader" className="flex-col text-center my-8">
-        <span className="text-3xl font-bold font-inter-700 text-[#4B5563] sm:text-4xl ">
+        <span className="text-3xl font-bold font-inter-700 text-mgh-dark-grey sm:text-4xl ">
           {contentTitle}
         </span>
-        <div className="mt-4 font-inter-400 text-[#6B7280] mx-4 sm:mx-0">
+        <div className="mt-4 font-inter-400 text-mgh-medium-grey mx-4 sm:mx-0">
           <PortableText value={contentConfig.contentNotes[0].content} />
         </div>
       </div>
@@ -52,11 +52,11 @@ const Content: StandardFC<Props> = (props) => {
         className="flex-col fill-white border-l border-r border-b rounded-b-xl p-6 shadow-xl my-16 "
       >
         <div id="subContentTitle">
-          <span className="block font-inter-700 text-l text-[#4B5563] sm:text-2xl sm:font-bold">
+          <span className="block font-inter-700 text-l text-mgh-dark-grey sm:text-2xl sm:font-bold">
             {subContentTitle}
           </span>
 
-          <span className=" font-inter-400 text-[#6B7280] sm:text-l ">
+          <span className=" font-inter-400 text-mgh-medium-grey sm:text-l ">
             {subContentTitleNote}
           </span>
         </div>
@@ -73,7 +73,7 @@ const Content: StandardFC<Props> = (props) => {
           </div>
 
           <div className="flex justify-center mt-12 mb-4">
-            <span className="text-xs text-[#4B5563] font-medium">
+            <span className="text-xs text-mgh-dark-grey font-medium">
               {footerlogoText}
             </span>
           </div>

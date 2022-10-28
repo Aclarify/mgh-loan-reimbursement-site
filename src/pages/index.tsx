@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 import clsx from 'clsx';
 import DefaultLayout from '../components/templates/layouts/Default.Layout.Template';
-import Content from '../components/organisms/content/Content.Organism';
+import Home from '../components/templates/Home.Template';
 import { MainContentProps } from '../types/content/sanity.content';
 
 const IndexPage = () => {
@@ -50,6 +50,12 @@ const IndexPage = () => {
                 href
               }
             }
+            buttonText
+            button {
+              href
+              text
+              type
+            }
             logoText
             logo {
               asset {
@@ -64,7 +70,7 @@ const IndexPage = () => {
   return (
     <DefaultLayout>
       <section className="container max-w-2xl mx-auto">
-        <Content content={allSanityMainContent}></Content>
+        <Home content={allSanityMainContent}></Home>
       </section>
     </DefaultLayout>
   );

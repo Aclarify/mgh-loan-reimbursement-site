@@ -11,7 +11,7 @@ interface Props {
 const RadioButton: React.FC<Props> = (props) => {
   return (
     <div>
-      <label className="block text-sm  font-bold text-[#4B5563]">
+      <label className="block text-sm  font-bold text-mgh-dark-grey">
         {props.label}
       </label>
       <fieldset className="mt-2">
@@ -27,7 +27,7 @@ const RadioButton: React.FC<Props> = (props) => {
               />
               <label
                 htmlFor={option.value}
-                className="ml-3 block text-sm font-inter-400 text-[#4B5563]"
+                className="ml-3 block text-sm font-inter-400 text-mgh-dark-grey"
               >
                 {option.label}
               </label>

@@ -27,18 +27,18 @@ const ComboBox: React.FC<Props> = ({
         });
   return (
     <Combobox as="div" value={selectedValue} onChange={onChange}>
-      <Combobox.Label className="block text-sm font-bold text-[#4B5563] mb-2">
+      <Combobox.Label className="block text-sm font-bold text-mgh-dark-grey mb-2">
         {label}
       </Combobox.Label>
       <div className="relative mt-1">
         <Combobox.Input
-          className="w-full rounded-md border border-[#ABADC6] bg-white py-2 pl-3 pr-10 shadow-sm focus:border-mgh-primary focus:outline-none focus:ring-1 focus:ring-mgh-primary sm:text-sm"
+          className="w-full rounded-md border border-mgh-light-grey bg-white py-2 pl-3 pr-10 shadow-sm focus:border-mgh-primary focus:outline-none focus:ring-1 focus:ring-mgh-primary sm:text-sm"
           // displayValue={selectedValue}
         />
 
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <ChevronUpDownIcon
-            className="h-5 w-5 text-[#ABADC6]"
+            className="h-5 w-5 text-mgh-light-grey"
             aria-hidden="true"
           />
         </Combobox.Button>
@@ -52,7 +52,7 @@ const ComboBox: React.FC<Props> = ({
                 className={({ active }) =>
                   clsx(
                     'relative cursor-default select-none py-2 pl-3 pr-9',
-                    active ? 'bg-mgh-primary text-white' : 'text-[#ABADC6]'
+                    active ? 'bg-mgh-primary text-white' : 'text-mgh-light-grey'
                   )
                 }
               >

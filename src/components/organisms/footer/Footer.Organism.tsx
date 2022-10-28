@@ -3,8 +3,7 @@ import { useStaticQuery, graphql, Link } from 'gatsby';
 import React from 'react';
 import { NavigationProps } from '../../../types/content/sanity.content';
 import { StandardFC } from '../../../types/libs/react.lib';
-import Logo from '../../atoms/logo/Logo.Atom';
-import TextLogo from '../../atoms/logo/TextLogo.Atom';
+import FooterTextLogo from '../../atoms/logo/FooterTextLogo.Atom';
 
 const copyRightText = `Copyright \u00A9 ${new Date().getFullYear()}`;
 const Footer: StandardFC = () => {
@@ -35,9 +34,8 @@ const Footer: StandardFC = () => {
                 href
               }
             }
-            textLogo {
-              titleLine1
-              titleLine2
+            footerTextLogo {
+              titleLine
               titleNote
             }
             mediaIconList {
@@ -55,7 +53,7 @@ const Footer: StandardFC = () => {
     links,
     contactIconGroup,
     linkGroup,
-    textLogo,
+    footerTextLogo,
     mediaIconList,
   } = footerConfig;
   const topFooterNavLinks = links;
@@ -136,14 +134,11 @@ const Footer: StandardFC = () => {
           >
             <section id="desc" className="basis-1/2">
               <div id="titleText">
-                <TextLogo
-                  titleLine1={textLogo.titleLine1}
-                  titleLine2={textLogo.titleLine2}
-                />
+                <FooterTextLogo titleLine={footerTextLogo.titleLine} />
               </div>
               <div id="programDesc">
                 <p className="text-xs sm:w-3/4 leading-5">
-                  {textLogo.titleNote}
+                  {footerTextLogo.titleNote}
                 </p>
               </div>
               <div id="mediaIcons" className="flex space-x-6 my-5">

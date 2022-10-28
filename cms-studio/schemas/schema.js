@@ -18,6 +18,7 @@ import mainContent from './mainContent';
 import formControl from './formControl';
 import form from './form';
 import formControlOptions from './formControlOptions';
+import footerTextLogo from './footerTextLogo';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -35,6 +36,7 @@ export default createSchema({
     navigation,
     linkGroup,
     textLogo,
+    footerTextLogo,
     textIconGroup,
     socialMediaIcons,
     mainContent,

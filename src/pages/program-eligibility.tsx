@@ -1,9 +1,8 @@
 import * as React from 'react';
 import type { HeadFC } from 'gatsby';
 import { useStaticQuery, graphql } from 'gatsby';
-import clsx from 'clsx';
 import DefaultLayout from '../components/templates/layouts/Default.Layout.Template';
-import Content from '../components/organisms/content/Content.Organism';
+import ProgramEligibility from '../components/templates/ProgramEligibility.Template';
 import { MainContentProps } from '../types/content/sanity.content';
 
 const ProgramEligibiltyPage = () => {
@@ -63,7 +62,7 @@ const ProgramEligibiltyPage = () => {
   return (
     <DefaultLayout>
       <section className="container max-w-2xl mx-auto">
-        <Content content={allSanityMainContent}></Content>
+        <ProgramEligibility content={allSanityMainContent}></ProgramEligibility>
       </section>
     </DefaultLayout>
   );
