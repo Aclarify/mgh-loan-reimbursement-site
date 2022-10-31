@@ -38,7 +38,8 @@ const Footer: StandardFC = () => {
             textLogo {
               titleLine1
               titleLine2
-              titleNote
+              # FIXME: The following was breaking the build -- cc: @sundarcodes @swineethamurthy
+              # titleNote
             }
             mediaIconList {
               icon
