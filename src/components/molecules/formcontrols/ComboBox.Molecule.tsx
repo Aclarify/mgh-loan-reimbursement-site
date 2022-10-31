@@ -19,6 +19,9 @@ const ComboBox: React.FC<Props> = ({
   onChange,
 }) => {
   const [query, setQuery] = useState('');
+  const selectedOption = options.find(
+    (option) => option.value === selectedValue
+  );
   const filteredOption =
     query === ''
       ? options
@@ -26,15 +29,16 @@ const ComboBox: React.FC<Props> = ({
           return option.label.toLowerCase().includes(query.toLowerCase());
         });
   return (
-    <Combobox as="div" value={selectedValue} onChange={onChange}>
+    <Combobox
+      as="div"
+      value={selectedOption ? selectedOption.label : selectedValue}
+      onChange={onChange}
+    >
       <Combobox.Label className="block text-sm font-bold text-mgh-dark-grey mb-2">
         {label}
       </Combobox.Label>
       <div className="relative mt-1">
-        <Combobox.Input
-          className="w-full rounded-md border border-mgh-light-grey bg-white py-2 pl-3 pr-10 shadow-sm focus:border-mgh-primary focus:outline-none focus:ring-1 focus:ring-mgh-primary sm:text-sm"
-          // displayValue={selectedValue}
-        />
+        <Combobox.Input className="w-full rounded-md border border-mgh-light-grey bg-white py-2 pl-3 pr-10 shadow-sm focus:border-mgh-primary focus:outline-none focus:ring-1 focus:ring-mgh-primary sm:text-sm" />
 
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <ChevronUpDownIcon

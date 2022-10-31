@@ -31,11 +31,11 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
 
   return (
     <div className="flex-col justify-center">
-      <div id="contentHeader" className="flex-col text-center my-8">
+      <div id="contentHeader" className="flex-col  my-8">
         <span className="text-3xl font-bold font-inter-700 text-mgh-dark-grey sm:text-4xl ">
           {titleText}
         </span>
-        <div className="mt-4 font-inter-400 text-mgh-medium-grey mx-4 sm:mx-0">
+        <div className="mt-4 font-inter-400 text-base text-mgh-medium-grey mx-4 sm:mx-0">
           <PortableText value={contentNotes[0].content} />
         </div>
       </div>

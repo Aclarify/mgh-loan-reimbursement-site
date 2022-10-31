@@ -28,11 +28,8 @@ const Home: StandardFC<Props> = (props) => {
   const [selectedProgram, setSelectedProgram] = useState(
     formControl.placeholder
   );
-  const onProgramChange = (selectedValue: string) => {
-    setSelectedProgram(selectedValue);
-  };
-  function transitToProgram() {
-    navigate('/program-eligibility');
+  function transitToProgram(formValue: any) {
+    navigate(`/program/${formValue[formControl.name]}`);
   }
   function applyNow() {}
 
