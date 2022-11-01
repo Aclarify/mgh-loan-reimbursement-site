@@ -1,29 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface Props {
   label: string;
   name: string;
   selectedValue: string;
   options: Array<{ label: string; value: string }>;
-  onClick?: (event: React.ChangeEvent<any>) => void;
+  onChange?: (event: React.ChangeEvent<any>) => void;
 }
 
-const RadioButton: React.FC<Props> = (props) => {
+const RadioButton: React.FC<Props> = ({
+  label,
+  name,
+  selectedValue,
+  options,
+  onChange,
+}) => {
+  const selectedOption = options.find(
+    (option) => option.value === selectedValue
+  );
   return (
     <div>
       <label className="block text-sm  font-bold text-mgh-dark-grey">
-        {props.label}
+        {label}
       </label>
-      <fieldset className="mt-2">
-        <legend className="sr-only">{props.label}</legend>
+      <fieldset id={name} className="mt-2">
+        <legend className="sr-only">{label}</legend>
         <div className="space-y-2">
-          {props.options.map((option) => (
+          {options.map((option) => (
             <div key={option.value} className="flex items-center">
               <input
                 id={option.value}
                 type="radio"
-                defaultChecked={option.value === props.selectedValue}
+                name={name}
+                defaultChecked={
+                  option.value ===
+                  (selectedOption ? selectedOption.value : selectedValue)
+                }
                 className="h-4 w-4 border-gray-300 text-mgh-primary focus:ring-mgh-primary"
+                onChange={onChange}
               />
               <label
                 htmlFor={option.value}

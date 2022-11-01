@@ -14,7 +14,6 @@ interface Props {
 
 const Home: StandardFC<Props> = (props) => {
   const contentConfig = props.content.edges[0].node;
-  console.log(contentConfig);
   const {
     titleText,
     contentNotes,
@@ -25,13 +24,10 @@ const Home: StandardFC<Props> = (props) => {
     logo,
   } = contentConfig;
   const formControl = form.formControls[0];
-  const [selectedProgram, setSelectedProgram] = useState(
-    formControl.placeholder
-  );
-  function transitToProgram(formValue: any) {
+  const transitToProgram = (formValue: any) => {
     navigate(`/program/${formValue[formControl.name]}`);
-  }
-  function applyNow() {}
+  };
+  const applyNow = () => {};
 
   return (
     <div className="flex-col justify-center">

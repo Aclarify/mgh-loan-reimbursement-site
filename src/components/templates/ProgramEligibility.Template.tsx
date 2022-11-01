@@ -21,13 +21,7 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
     form,
   } = contentConfig;
   const formControl = form.formControls[0];
-  const [selectedProgram, setSelectedProgram] = useState(
-    formControl.placeholder
-  );
-  const onProgramChange = (selectedValue: string) => {
-    setSelectedProgram(selectedValue);
-  };
-  function checkEligibility() {}
+  const checkEligibility = () => {};
 
   return (
     <div className="flex-col justify-center">
