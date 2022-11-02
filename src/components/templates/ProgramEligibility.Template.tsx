@@ -21,7 +21,7 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
     form,
   } = contentConfig;
   const formControl = form.formControls[0];
-  const checkEligibility = () => {};
+  const checkEligibility = (formValue: any) => {};
 
   return (
     <div className="flex-col justify-center">

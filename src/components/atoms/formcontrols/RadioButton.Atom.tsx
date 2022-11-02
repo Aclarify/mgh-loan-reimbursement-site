@@ -5,7 +5,7 @@ interface Props {
   name: string;
   selectedValue: string;
   options: Array<{ label: string; value: string }>;
-  onChange?: (event: React.ChangeEvent<any>) => void;
+  onChange: (eventValue: string) => void;
 }
 
 const RadioButton: React.FC<Props> = ({
@@ -37,7 +37,7 @@ const RadioButton: React.FC<Props> = ({
                   (selectedOption ? selectedOption.value : selectedValue)
                 }
                 className="h-4 w-4 border-gray-300 text-mgh-primary focus:ring-mgh-primary"
-                onChange={onChange}
+                onChange={(event) => onChange(option.value)}
               />
               <label
                 htmlFor={option.value}

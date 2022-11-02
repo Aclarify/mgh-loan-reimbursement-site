@@ -123,18 +123,19 @@ const NavBar: StandardFC = () => {
         </svg>
       </div>
 
-      <div className="relative hidden  ">
+      <div className="absolute hidden  ">
         <div
           className={clsx(
-            'relative',
+            'absolute',
             'h-16',
             'sm:h-24',
             'pr-8',
             'md:pr-0',
-            'mx-auto'
+            'mx-auto',
+            'z-5'
           )}
         >
-          <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
+          {/* <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} /> */}
         </div>
       </div>
       <div className="absolute top-0 lg:top-3 w-full lg:bg-transparent">
@@ -247,9 +248,9 @@ const NavBar: StandardFC = () => {
               </Popover.Group>
             </div>
           </div>
-          <div id="logoContainer" className="flex justify-center ">
-            {/* <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} /> */}
-          </div>
+          {/* <div id="logoContainer" className="flex justify-center ">
+            <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
+          </div> */}
 
           <Transition
             as={Fragment}
