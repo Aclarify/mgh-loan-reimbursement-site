@@ -25,11 +25,11 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
 
   return (
     <div className="flex-col justify-center">
-      <div id="contentHeader" className="flex-col  my-8">
-        <span className="text-3xl font-bold font-inter-700 text-mgh-dark-grey sm:text-4xl ">
+      <div id="contentHeader" className="flex-col  my-8 mx-6 sm:mx-0 ">
+        <span className="text-3xl font-bold font-inter-700 text-mgh-dark-grey sm:text-4xl  ">
           {titleText}
         </span>
-        <div className="mt-4 font-inter-400 text-base text-mgh-medium-grey mx-4 sm:mx-0">
+        <div className="mt-4 font-inter-400 text-base text-mgh-medium-grey ">
           <PortableText value={contentNotes[0].content} />
         </div>
       </div>
@@ -38,7 +38,7 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
         className="flex-col fill-white border-l border-r border-b rounded-b-xl p-6 shadow-xl my-16 "
       >
         <div id="subContentTitle">
-          <span className="block font-inter-700 text-l text-mgh-dark-grey sm:text-2xl sm:font-bold">
+          <span className="block font-inter-700 text-l text-mgh-dark-grey sm:text-2xl font-bold ">
             {subContentTitle}
           </span>
 

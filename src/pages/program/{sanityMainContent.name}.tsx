@@ -12,7 +12,7 @@ const ProgramEligibiltyPage = ({
 }) => {
   return (
     <DefaultLayout>
-      <section className="container max-w-4xl mx-auto">
+      <section className="container mx-auto max-w-4xl">
         <ProgramEligibility
           content={data.allSanityMainContent}
         ></ProgramEligibility>

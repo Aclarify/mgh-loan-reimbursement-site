@@ -67,7 +67,7 @@ const NavBar: StandardFC = () => {
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
         >
-          <defs>
+          {/* <defs>
             <pattern
               id="img1"
               patternUnits="userSpaceOnUse"
@@ -82,7 +82,7 @@ const NavBar: StandardFC = () => {
                 height="100"
               />
             </pattern>
-          </defs>
+          </defs> */}
           <path
             d="M0 131L42.7 119.8C85.3 108.7 170.7 86.3 256 78.2C341.3 70 426.7 76 512 89.2C597.3 102.3 682.7 122.7 768 131.7C853.3 140.7 938.7 138.3 981.3 137.2L1024 136L1024 0L981.3 0C938.7 0 853.3 0 768 0C682.7 0 597.3 0 512 0C426.7 0 341.3 0 256 0C170.7 0 85.3 0 42.7 0L0 0Z"
             fill="#206B9E"
