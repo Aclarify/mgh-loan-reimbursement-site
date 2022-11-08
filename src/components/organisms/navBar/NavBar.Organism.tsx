@@ -60,22 +60,54 @@ const NavBar: StandardFC = () => {
   const allNavLinks = [...navLinks, ...categoryLinks];
   return (
     <section className="relative ">
-      <div className="relative">
-        <svg
-          id="visual"
-          viewBox="0 0 1000 200"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-          className="relative top-0 left-0 bg-[url('../images/bg-medical.jpeg')] bg-cover"
-        >
-          <path
-            d="M0 110L41.7 103.2C83.3 96.3 166.7 82.7 250 75.7C333.3 68.7 416.7 68.3 500 81.7C583.3 95 666.7 122 750 134.5C833.3 147 916.7 145 958.3 144L1000 143L1000 201L958.3 201C916.7 201 833.3 201 750 201C666.7 201 583.3 201 500 201C416.7 201 333.3 201 250 201C166.7 201 83.3 201 41.7 201L0 201Z"
-            fill="#ffff"
-          ></path>
-        </svg>
-        <Popover className="absolute text-white top-0 w-full">
+      <div>
+        <div className="hidden lg:block">
+          <svg
+            id="visual"
+            viewBox="0 0 1000 200"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            className="relative top-0 left-0 bg-blend-screen bg-[url('../images/bg-medical.jpeg')] bg-cover"
+          >
+            <path
+              d="M0 110L41.7 103.2C83.3 96.3 166.7 82.7 250 75.7C333.3 68.7 416.7 68.3 500 81.7C583.3 95 666.7 122 750 134.5C833.3 147 916.7 145 958.3 144L1000 143L1000 201L958.3 201C916.7 201 833.3 201 750 201C666.7 201 583.3 201 500 201C416.7 201 333.3 201 250 201C166.7 201 83.3 201 41.7 201L0 201Z"
+              fill="#ffff"
+            ></path>
+          </svg>
+        </div>
+        <div className=" block sm:hidden">
+          <svg
+            id="visual"
+            viewBox="0 0 600 300"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            className="bg-[url('../images/bg-medical.jpeg')] bg-cover"
+          >
+            <path
+              d="M0 223L33.3 215.2C66.7 207.3 133.3 191.7 200 195.5C266.7 199.3 333.3 222.7 400 234.3C466.7 246 533.3 246 566.7 246L600 246L600 301L566.7 301C533.3 301 466.7 301 400 301C333.3 301 266.7 301 200 301C133.3 301 66.7 301 33.3 301L0 301Z"
+              fill="#ffff"
+            ></path>
+          </svg>
+        </div>
+        <div className="hidden sm:block lg:hidden">
+          <svg
+            id="visual"
+            viewBox="0 0 900 300"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            className="bg-[url('../images/bg-medical.jpeg')] bg-cover"
+          >
+            <path
+              d="M0 193L50 182C100 171 200 149 300 154.3C400 159.7 500 192.3 600 208.7C700 225 800 225 850 225L900 225L900 301L850 301C800 301 700 301 600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
+              fill="#ffff"
+            ></path>
+          </svg>
+        </div>
+      </div>
+      <div className="absolute top-0 lg:top-3 w-full lg:bg-transparent">
+        <Popover className="relative z-10  text-white ">
           <div className="mx-auto max-w-7xl px-6  sm:px-8 ">
-            <div className="flex items-center justify-between  py-6 md:justify-start md:space-x-10">
+            <div className="flex items-center justify-between py-6 lg:py-0  md:justify-start md:space-x-10">
               <div className="flex justify-start flex-shrink">
                 <span className="sr-only">Mass League</span>
                 <div
@@ -218,7 +250,7 @@ const NavBar: StandardFC = () => {
                       </Popover.Button>
                     </div>
                   </div>
-                  <div className="mt-6">
+                  <div className="mt-6 ">
                     <nav className="grid gap-y-8">
                       {allNavLinks &&
                         allNavLinks.length &&
