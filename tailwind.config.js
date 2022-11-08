@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         'mgh-primary': '#206B9E',
         'mgh-primary-dark': '#024775',
+        'mgh-medium-grey': '#6B7280',
+        'mgh-dark-grey': '#4B5563',
+        'mgh-light-grey': '#ABADC6',
       },
       fontFamily: {
         inter: ['Inter'],

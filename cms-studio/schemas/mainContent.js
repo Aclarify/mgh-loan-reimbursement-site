@@ -36,6 +36,17 @@ export default {
       to: [{ type: 'form' }],
     },
     {
+      name: 'buttonText',
+      title: 'Button Text',
+      type: 'string',
+    },
+    {
+      title: 'Button',
+      name: 'button',
+      type: 'reference',
+      to: [{ type: 'cta' }],
+    },
+    {
       name: 'logoText',
       title: 'Logo Text',
       type: 'string',

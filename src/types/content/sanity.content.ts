@@ -25,6 +25,10 @@ export interface Cta {
 export interface TextLogo {
   titleLine1: string;
   titleLine2: string;
+  type: 'default';
+}
+export interface FooterTextLogo {
+  titleLine: string;
   titleNote: string;
   type: 'default';
 }
@@ -76,6 +80,7 @@ export interface NavigationProps {
           linkGroup: LinkGroup;
           contactIconGroup: TextIconGroup;
           textLogo: TextLogo;
+          footerTextLogo: FooterTextLogo;
           footerDescription: FooterDescription;
           mediaIconList: MediaIcon[];
         };
@@ -131,6 +136,8 @@ export interface MainContentProps {
         subContentTitle: string;
         subContentTitleNote: string;
         form: Form;
+        buttonText: string;
+        button: Button;
         logoText: string;
         logo: {
           asset: {

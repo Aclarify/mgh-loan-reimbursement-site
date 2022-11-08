@@ -23,6 +23,12 @@ export default {
       to: [{ type: 'textLogo' }],
     },
     {
+      name: 'footerTextLogo',
+      title: 'Footer Text Logo',
+      type: 'reference',
+      to: [{ type: 'footerTextLogo' }],
+    },
+    {
       title: 'Call-to-Action',
       name: 'cta',
       type: 'reference',
