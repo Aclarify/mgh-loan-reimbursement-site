@@ -43,7 +43,6 @@ const FormBuilder = ({ form, onSubmit }: FormProps) => {
             onChange: (value: any) => onChange(formControl.name, value),
             key: `${formControl.name}-${index}`,
           };
-          console.log(formControlProps);
           return <div key={index}>{componentToRender(formControlProps)}</div>;
         })}
       </div>

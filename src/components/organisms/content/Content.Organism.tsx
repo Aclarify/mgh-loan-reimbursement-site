@@ -12,27 +12,11 @@ interface Props {
 }
 
 const Content: StandardFC<Props> = (props) => {
-  console.log('props.content', props.content);
   const contentConfig = props.content.edges[0].node;
-  const {
-    titleText,
-    name,
-    contentNotes,
-    subContentTitle,
-    subContentTitleNote,
-    form,
-    logoText,
-    logo,
-  } = contentConfig;
+  const { subContentTitle, subContentTitleNote, logo } = contentConfig;
   const contentTitle = contentConfig.titleText;
   const footerlogoText = contentConfig.logoText;
   const formControl = contentConfig.form.formControls[0];
-  const [selectedProgram, setSelectedProgram] = useState(
-    formControl.placeholder
-  );
-  const onProgramChange = (selectedValue: string) => {
-    setSelectedProgram(selectedValue);
-  };
   function transitToProgram() {
     navigate('/program-eligibility');
   }

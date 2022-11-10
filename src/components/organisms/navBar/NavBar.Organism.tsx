@@ -5,9 +5,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 import Logo from '../../atoms/logo/Logo.Atom';
-import { graphql, Link, StaticQuery, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { StandardFC } from '../../../types/libs/react.lib';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { NavigationProps } from '../../../types/content/sanity.content';
 import TextLogo from '../../atoms/logo/TextLogo.Atom';
 

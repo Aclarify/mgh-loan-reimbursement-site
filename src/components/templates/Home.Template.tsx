@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { navigate } from 'gatsby';
 import { MainContentProps } from '../../types/content/sanity.content';

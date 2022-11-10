@@ -57,6 +57,7 @@ export enum SocialMediaIcons {
   DRIBBLE = 'Dribble',
   GITHUB = 'Github',
 }
+
 export interface MediaIcon {
   icon: SocialMediaIcons;
   text: string;
@@ -126,6 +127,7 @@ export interface Button {
   type: 'default';
   href: string;
 }
+
 export interface MainContentProps {
   edges: [
     {
@@ -144,6 +146,32 @@ export interface MainContentProps {
             gatsbyImageData: IGatsbyImageData;
           };
         };
+      };
+    }
+  ];
+}
+
+export interface EligibilityResult {
+  name: string;
+  title: string;
+  notes: string;
+  eligibilityStatus: EligibilityStatus;
+  button: Button;
+}
+
+export enum EligibilityStatus {
+  YES = 'YES',
+  NO = 'NO',
+  MAYBE = 'MAYBE',
+}
+export interface EligibilityStatusProps {
+  edges: [
+    {
+      node: {
+        name: string;
+        eligibilityTitle: string;
+        contentNotes: string;
+        button: Button;
       };
     }
   ];

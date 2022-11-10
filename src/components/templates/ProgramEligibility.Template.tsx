@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
-import { navigate } from 'gatsby';
-import { MainContentProps } from '../../types/content/sanity.content';
+import {
+  EligibilityStatus,
+  MainContentProps,
+} from '../../types/content/sanity.content';
 import { StandardFC } from '../../types/libs/react.lib';
-import Logo from '../atoms/logo/Logo.Atom';
 import { PortableText } from '@portabletext/react';
 import Form from '../organisms/form/Form.Organism';
-
+import Eligibility from '../organisms/content/EligibilityStatus.Organism';
 interface Props {
   content: MainContentProps;
 }
@@ -21,7 +21,21 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
     form,
   } = contentConfig;
   const formControl = form.formControls[0];
-  const checkEligibility = (formValue: any) => {};
+  const [showCalculationStatus, setshowCalculationStatus] = useState(false);
+
+  const [eligibility, setEligibility] = useState('');
+
+  const checkEligibility = (formValue: any) => {
+    setshowCalculationStatus(true);
+    calculateEligibility(formValue);
+  };
+
+  const calculateEligibility = (selectedValues: any) => {
+    setTimeout(function () {
+      setshowCalculationStatus(false);
+    }, 3000);
+    setEligibility(EligibilityStatus.YES);
+  };
 
   return (
     <div className="flex-col justify-center">
@@ -47,7 +61,24 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
           </span>
         </div>
         <div className="my-6">
-          <Form form={form} onSubmit={checkEligibility} />
+          {!showCalculationStatus && !eligibility && (
+            <Form form={form} onSubmit={checkEligibility} />
+          )}
+          {showCalculationStatus && (
+            <div className="flex-col justify-center">
+              <div className="flex justify-center">
+                <p className="font-inter-700 text-mgh-primary text-2xl font-bold">
+                  Calculating...
+                </p>
+              </div>
+              <div className="flex justify-center">
+                <img src="/loadingGear.svg"></img>
+              </div>
+            </div>
+          )}
+          {!showCalculationStatus && eligibility && (
+            <Eligibility eligibility={eligibility} />
+          )}
         </div>
       </div>
     </div>
