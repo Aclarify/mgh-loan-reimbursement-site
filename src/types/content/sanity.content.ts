@@ -151,14 +151,6 @@ export interface MainContentProps {
   ];
 }
 
-export interface EligibilityResult {
-  name: string;
-  title: string;
-  notes: string;
-  eligibilityStatus: EligibilityStatus;
-  button: Button;
-}
-
 export enum EligibilityStatus {
   YES = 'YES',
   NO = 'NO',
@@ -172,6 +164,21 @@ export interface EligibilityStatusProps {
         eligibilityTitle: string;
         contentNotes: string;
         button: Button;
+      };
+    }
+  ];
+}
+
+export interface ImagesProps {
+  edges: [
+    {
+      node: {
+        name: string;
+        image: {
+          asset: {
+            gatsbyImageData: IGatsbyImageData;
+          };
+        };
       };
     }
   ];

@@ -1,17 +1,39 @@
 import React, { useState } from 'react';
 import {
   EligibilityStatus,
+  ImagesProps,
   MainContentProps,
 } from '../../types/content/sanity.content';
 import { StandardFC } from '../../types/libs/react.lib';
 import { PortableText } from '@portabletext/react';
 import Form from '../organisms/form/Form.Organism';
 import Eligibility from '../organisms/content/EligibilityStatus.Organism';
+import { graphql, useStaticQuery } from 'gatsby';
+import clsx from 'clsx';
+import { GatsbyImage } from 'gatsby-plugin-image';
 interface Props {
   content: MainContentProps;
 }
 
 const ProgramEligibility: StandardFC<Props> = (props) => {
+  const { allSanityImages } = useStaticQuery<{
+    allSanityImages: ImagesProps;
+  }>(graphql`
+    query {
+      allSanityImages(filter: { name: { eq: "LoadingGear" } }) {
+        edges {
+          node {
+            image {
+              asset {
+                gatsbyImageData
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+
   const contentConfig = props.content.edges[0].node;
   const {
     titleText,
@@ -39,7 +61,7 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
 
   return (
     <div className="flex-col justify-center">
-      <div id="contentHeader" className="flex-col  my-8 mx-6 sm:mx-0 ">
+      <div id="contentHeader" className="flex-col  my-8 mx-6  ">
         <span className="text-3xl font-bold font-inter-700 text-mgh-dark-grey sm:text-4xl  ">
           {titleText}
         </span>
@@ -71,8 +93,18 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
                   Calculating...
                 </p>
               </div>
-              <div className="flex justify-center">
-                <img src="/loadingGear.svg"></img>
+              <div className="flex justify-center ">
+                <GatsbyImage
+                  image={
+                    allSanityImages.edges[0].node.image?.asset?.gatsbyImageData
+                  }
+                  alt="Calculating..."
+                  className={clsx('h-full', 'w-auto')}
+                  {...{
+                    objectFit: 'contain',
+                    objectPosition: 'left',
+                  }}
+                />
               </div>
             </div>
           )}

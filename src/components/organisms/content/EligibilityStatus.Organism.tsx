@@ -44,7 +44,7 @@ const Eligibility = (props: EligibilityProps) => {
               {resultToShow.node.eligibilityTitle}
             </span>
           </div>
-          <div className="flex justify-center whitespace-normal mx-60 mt-6 text-justify">
+          <div className="flex justify-center whitespace-normal mx-20 md:mx-60 mt-6 text-justify">
             <span className=" font-inter-400 font-normal text-mgh-medium-grey text-base ">
               {resultToShow.node.contentNotes}
             </span>
