@@ -21,6 +21,7 @@ import formControlOptions from './formControlOptions';
 import footerTextLogo from './footerTextLogo';
 import eligibilityStatus from './eligibilityStatus';
 import images from './images';
+import rules, { condition, rule } from './rules';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -47,6 +48,9 @@ export default createSchema({
     formControlOptions,
     eligibilityStatus,
     images,
+    rule,
+    condition,
+    rules,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),
