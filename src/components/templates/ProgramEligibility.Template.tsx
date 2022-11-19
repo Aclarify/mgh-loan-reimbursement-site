@@ -7,6 +7,7 @@ import { StandardFC } from '../../types/libs/react.lib';
 import { PortableText } from '@portabletext/react';
 import Form from '../organisms/form/Form.Organism';
 import Eligibility from '../organisms/content/EligibilityStatus.Organism';
+import { evaluate } from '../../services/rules-engine.service';
 interface Props {
   content: MainContentProps;
 }
@@ -19,21 +20,30 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
     subContentTitle,
     subContentTitleNote,
     form,
+    rules,
   } = contentConfig;
   const [showCalculationStatus, setshowCalculationStatus] = useState(false);
 
   const [eligibility, setEligibility] = useState('');
 
-  const checkEligibility = (formValue: any) => {
+  const checkEligibility = async (formValue: any) => {
     setshowCalculationStatus(true);
-    calculateEligibility(formValue);
+    const rsp = await evaluate(rules, formValue);
+    await waitForSpinner();
+    setshowCalculationStatus(false);
+    if (rsp === 'Eligible') {
+      setEligibility(EligibilityStatus.YES);
+    } else {
+      setEligibility(EligibilityStatus.NO);
+    }
   };
 
-  const calculateEligibility = (selectedValues: any) => {
-    setTimeout(function () {
-      setshowCalculationStatus(false);
-    }, 3000);
-    setEligibility(EligibilityStatus.YES);
+  const waitForSpinner = () => {
+    return new Promise<void>((resolve, reject) => {
+      setTimeout(function () {
+        resolve();
+      }, 2000);
+    });
   };
 
   return (

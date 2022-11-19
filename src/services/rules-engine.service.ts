@@ -1,60 +1,34 @@
 import { Engine, RuleProperties } from 'json-rules-engine';
+import { RuleGroup } from '../types/content/sanity.content';
 
-export const evaluate = async (rules: RuleProperties, facts: any) => {
+export const evaluate = async (ruleGroup: RuleGroup, facts: any) => {
   const engine = new Engine();
+  const rules = frameRule(ruleGroup);
   engine.addRule(rules);
   return engine.run(facts).then(({ events }) => {
     events.map((event) => console.log(event?.params?.message));
-    return true;
+    if (events && events.length === 0) {
+      return 'Not eligible';
+    }
+    return events[0].type;
   });
 };
 
-(async () => {
-  await evaluate(
-    {
-      conditions: {
-        any: [
-          {
-            all: [
-              {
-                fact: 'gameDuration',
-                operator: 'equal',
-                value: 40,
-              },
-              {
-                fact: 'personalFoulCount',
-                operator: 'greaterThanInclusive',
-                value: 5,
-              },
-            ],
-          },
-          {
-            all: [
-              {
-                fact: 'gameDuration',
-                operator: 'equal',
-                value: 48,
-              },
-              {
-                fact: 'personalFoulCount',
-                operator: 'greaterThanInclusive',
-                value: 6,
-              },
-            ],
-          },
-        ],
-      },
-      event: {
-        // define the event to fire when the conditions evaluate truthy
-        type: 'fouledOut',
-        params: {
-          message: 'Player has fouled out!',
-        },
+export const frameRule = (rules: RuleGroup): RuleProperties => {
+  // TODO - Refactor the condition
+  return {
+    conditions: {
+      all: rules.rules[0].conditions.map((rule) => ({
+        fact: rule.fieldName,
+        operator: rule.operator,
+        value: rule.fieldValue,
+      })),
+    },
+    event: {
+      type: 'Eligible',
+      params: {
+        message: 'User is eligible',
       },
     },
-    {
-      personalFoulCount: 6,
-      gameDuration: 40,
-    }
-  );
-})();
+  };
+};

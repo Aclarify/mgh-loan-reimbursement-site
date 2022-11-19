@@ -12,6 +12,7 @@ module.exports = {
         'mgh-medium-grey': '#6B7280',
         'mgh-dark-grey': '#4B5563',
         'mgh-light-grey': '#ABADC6',
+        'mgh-highlight-red': '#CD4F4F',
       },
       fontFamily: {
         inter: ['Inter'],

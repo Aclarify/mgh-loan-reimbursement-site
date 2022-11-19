@@ -12,7 +12,7 @@ import TextLogo from '../../atoms/logo/TextLogo.Atom';
 
 const NavBar: StandardFC = () => {
   const { allSanityNavigation } = useStaticQuery<NavigationProps>(graphql`
-    query HeaderQuery1 {
+    query HeaderQuery {
       allSanityNavigation(filter: { name: { eq: "Header" } }) {
         edges {
           node {

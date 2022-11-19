@@ -19,5 +19,10 @@ export default {
       type: 'array',
       of: [{ type: 'block' }],
     },
+    {
+      name: 'highlightText',
+      title: 'Highlight Text',
+      type: 'string',
+    },
   ],
 };

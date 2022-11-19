@@ -93,6 +93,7 @@ export interface NavigationProps {
 export interface ContentNotes {
   title: string;
   content: RichText;
+  highlightText: string;
 }
 
 export interface RichText {
@@ -128,6 +129,35 @@ export interface Button {
   href: string;
 }
 
+export interface RuleGroup {
+  name: string;
+  rules: Array<Rule>;
+}
+
+export enum OperatorType {
+  AND = 'all',
+  OR = 'any',
+}
+
+export interface Rule {
+  name: string;
+  conditionType: OperatorType;
+  conditions: Array<Condition>;
+}
+
+export enum Operator {
+  EQUAL = 'equal',
+  IN = 'in',
+  GREATER_THAN = 'greaterThan',
+  GREATER_THAN_EQUAL = 'greaterThanInclusive',
+}
+
+export interface Condition {
+  fieldName: string;
+  operator: Operator;
+  fieldValue: string;
+}
+
 export interface MainContentProps {
   edges: [
     {
@@ -135,8 +165,10 @@ export interface MainContentProps {
         titleText: string;
         name: string;
         contentNotes: ContentNotes;
+        highlightText: string;
         subContentTitle: string;
         subContentTitleNote: string;
+        rules: RuleGroup;
         form: Form;
         buttonText: string;
         button: Button;

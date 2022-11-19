@@ -45,6 +45,17 @@ export const query = graphql`
           }
           subContentTitle
           subContentTitleNote
+          rules {
+            name
+            rules {
+              name
+              conditions {
+                fieldName
+                fieldValue
+                operator
+              }
+            }
+          }
           form {
             name
             formControls {
