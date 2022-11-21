@@ -155,7 +155,8 @@ export enum Operator {
 export interface Condition {
   fieldName: string;
   operator: Operator;
-  fieldValue: string;
+  fieldValue?: string;
+  fieldValues?: Array<string>;
 }
 
 export interface MainContentProps {

@@ -74,8 +74,10 @@ export const condition = {
       options: {
         list: [
           { title: 'Equal', value: 'equal' },
-          { title: 'Greater than', value: 'greaterThan' },
-          { title: 'Greater than and equal to', value: 'greaterThanInclusive' },
+          // { title: 'Greater than', value: 'greaterThan' },
+          // { title: 'Greater than and equal to', value: 'greaterThanInclusive' },
+          { title: 'Equals to any of', value: 'in' },
+          // { title: 'Not Equals to any of', value: 'notIn' },
         ],
       },
     },
@@ -83,17 +85,24 @@ export const condition = {
       name: 'fieldValue',
       title: 'Field Value',
       type: 'string',
+      hidden: ({ parent }) =>
+        parent && parent.operator && ['in', 'notIn'].includes(parent.operator),
     },
-    // {
-    //   title: 'conditions',
-    //   name: 'Conditions',
-    //   type: 'array',
-    //   of: [
-    //     {
-    //       type: 'reference',
-    //       to: [{ type: 'condition' }],
-    //     },
-    //   ],
-    // },
+    {
+      name: 'fieldValues',
+      title: 'Field Values',
+      type: 'array',
+      of: [
+        {
+          type: 'string',
+        },
+      ],
+      hidden: ({ parent }) =>
+        !(
+          parent &&
+          parent.operator &&
+          ['in', 'notIn'].includes(parent.operator)
+        ),
+    },
   ],
 };

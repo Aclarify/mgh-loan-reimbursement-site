@@ -38,7 +38,11 @@ const ComboBox: React.FC<Props> = ({
         {label}
       </Combobox.Label>
       <div className="relative mt-1">
-        <Combobox.Input className="w-full rounded-md border border-mgh-light-grey bg-white py-2 pl-3 pr-10 shadow-sm focus:border-mgh-primary focus:outline-none focus:ring-1 focus:ring-mgh-primary sm:text-sm" />
+        <Combobox.Input
+          className="w-full rounded-md border border-mgh-light-grey bg-white py-2 pl-3 pr-10 shadow-sm focus:border-mgh-primary focus:outline-none focus:ring-1 focus:ring-mgh-primary sm:text-sm"
+          onChange={(event) => setQuery(event.target.value)}
+          displayValue={selectedOption ? selectedOption.label : selectedValue}
+        />
 
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <ChevronUpDownIcon

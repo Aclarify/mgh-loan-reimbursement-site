@@ -6,7 +6,6 @@ export const evaluate = async (ruleGroup: RuleGroup, facts: any) => {
   const rules = frameRule(ruleGroup);
   engine.addRule(rules);
   return engine.run(facts).then(({ events }) => {
-    events.map((event) => console.log(event?.params?.message));
     if (events && events.length === 0) {
       return 'Not eligible';
     }
@@ -21,14 +20,13 @@ export const frameRule = (rules: RuleGroup): RuleProperties => {
       all: rules.rules[0].conditions.map((rule) => ({
         fact: rule.fieldName,
         operator: rule.operator,
-        value: rule.fieldValue,
+        value: ['in', 'notIn'].includes(rule.operator)
+          ? rule.fieldValues
+          : rule.fieldValue,
       })),
     },
     event: {
       type: 'Eligible',
-      params: {
-        message: 'User is eligible',
-      },
     },
   };
 };
