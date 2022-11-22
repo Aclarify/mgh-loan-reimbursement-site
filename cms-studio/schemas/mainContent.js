@@ -47,10 +47,15 @@ export default {
       to: [{ type: 'cta' }],
     },
     {
-      title: 'Rules',
-      name: 'rules',
-      type: 'reference',
-      to: [{ type: 'ruleGroup' }],
+      title: 'Rule Groups',
+      name: 'ruleGroups',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'ruleGroup' }],
+        },
+      ],
     },
     {
       name: 'logoText',

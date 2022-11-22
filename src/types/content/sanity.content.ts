@@ -132,6 +132,7 @@ export interface Button {
 export interface RuleGroup {
   name: string;
   rules: Array<Rule>;
+  ruleGroupType: EligibilityStatus;
 }
 
 export enum OperatorType {
@@ -153,6 +154,7 @@ export enum Operator {
 }
 
 export interface Condition {
+  name: string;
   fieldName: string;
   operator: Operator;
   fieldValue?: string;
@@ -169,7 +171,7 @@ export interface MainContentProps {
         highlightText: string;
         subContentTitle: string;
         subContentTitleNote: string;
-        rules: RuleGroup;
+        ruleGroups: Array<RuleGroup>;
         form: Form;
         buttonText: string;
         button: Button;

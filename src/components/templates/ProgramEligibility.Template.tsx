@@ -20,7 +20,7 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
     subContentTitle,
     subContentTitleNote,
     form,
-    rules,
+    ruleGroups,
   } = contentConfig;
   const [showCalculationStatus, setshowCalculationStatus] = useState(false);
 
@@ -28,14 +28,10 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
 
   const checkEligibility = async (formValue: any) => {
     setshowCalculationStatus(true);
-    const rsp = await evaluate(rules, formValue);
+    const rsp = await evaluate(ruleGroups, formValue);
     await waitForSpinner();
     setshowCalculationStatus(false);
-    if (rsp === 'Eligible') {
-      setEligibility(EligibilityStatus.YES);
-    } else {
-      setEligibility(EligibilityStatus.NO);
-    }
+    setEligibility(rsp);
   };
 
   const waitForSpinner = () => {

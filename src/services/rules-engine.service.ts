@@ -1,32 +1,43 @@
 import { Engine, RuleProperties } from 'json-rules-engine';
-import { RuleGroup } from '../types/content/sanity.content';
+import {
+  EligibilityStatus,
+  Rule,
+  RuleGroup,
+} from '../types/content/sanity.content';
 
-export const evaluate = async (ruleGroup: RuleGroup, facts: any) => {
+export const evaluate = async (ruleGroups: Array<RuleGroup>, facts: any) => {
   const engine = new Engine();
-  const rules = frameRule(ruleGroup);
-  engine.addRule(rules);
+  for (const ruleGroup of ruleGroups) {
+    for (const rule of ruleGroup.rules) {
+      const rules = frameRule(rule, ruleGroup.ruleGroupType);
+      engine.addRule(rules);
+    }
+  }
   return engine.run(facts).then(({ events }) => {
     if (events && events.length === 0) {
-      return 'Not eligible';
+      return EligibilityStatus.NO;
     }
     return events[0].type;
   });
 };
 
-export const frameRule = (rules: RuleGroup): RuleProperties => {
+export const frameRule = (
+  rule: Rule,
+  ruleType: EligibilityStatus
+): RuleProperties => {
   // TODO - Refactor the condition
   return {
     conditions: {
-      all: rules.rules[0].conditions.map((rule) => ({
-        fact: rule.fieldName,
-        operator: rule.operator,
-        value: ['in', 'notIn'].includes(rule.operator)
-          ? rule.fieldValues
-          : rule.fieldValue,
+      all: rule.conditions.map((condition) => ({
+        fact: condition.fieldName,
+        operator: condition.operator,
+        value: ['in', 'notIn'].includes(condition.operator)
+          ? condition.fieldValues
+          : condition.fieldValue,
       })),
     },
     event: {
-      type: 'Eligible',
+      type: ruleType,
     },
   };
 };

@@ -9,6 +9,18 @@ export default {
       type: 'string',
     },
     {
+      name: 'ruleGroupType',
+      title: 'Eligibility Rule Type',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Eligible', value: 'YES' },
+          { title: 'Not Eligible', value: 'NO' },
+          { title: 'Might be eligible', value: 'MAYBE' },
+        ],
+      },
+    },
+    {
       title: 'Rules',
       name: 'rules',
       type: 'array',
@@ -62,6 +74,11 @@ export const condition = {
   title: 'Condition',
   type: 'document',
   fields: [
+    {
+      name: 'name',
+      title: 'Condition Name',
+      type: 'string',
+    },
     {
       name: 'fieldName',
       title: 'Field Name',

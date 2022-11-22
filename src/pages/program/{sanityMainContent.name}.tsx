@@ -45,8 +45,9 @@ export const query = graphql`
           }
           subContentTitle
           subContentTitleNote
-          rules {
+          ruleGroups {
             name
+            ruleGroupType
             rules {
               name
               conditions {
