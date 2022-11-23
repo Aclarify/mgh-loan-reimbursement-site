@@ -5,9 +5,8 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 import Logo from '../../atoms/logo/Logo.Atom';
-import { graphql, Link, StaticQuery, useStaticQuery } from 'gatsby';
+import { graphql, Link, useStaticQuery } from 'gatsby';
 import { StandardFC } from '../../../types/libs/react.lib';
-import { IGatsbyImageData } from 'gatsby-plugin-image';
 import { NavigationProps } from '../../../types/content/sanity.content';
 import TextLogo from '../../atoms/logo/TextLogo.Atom';
 
@@ -59,89 +58,55 @@ const NavBar: StandardFC = () => {
   const linkGroupName = linkGroup.text;
   const allNavLinks = [...navLinks, ...categoryLinks];
   return (
-    <div className="lg:relative">
-      <div className="hidden lg:block">
-        <svg
-          id="visual"
-          viewBox="0 0 1000 200"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-        >
-          {/* <defs>
-            <pattern
-              id="img1"
-              patternUnits="userSpaceOnUse"
-              width="100"
-              height="100"
-            >
-              <image
-                href="favicon-32x32.png"
-                x="0"
-                y="0"
-                width="100"
-                height="100"
-              />
-            </pattern>
-          </defs> */}
-          <path
-            d="M0 131L42.7 119.8C85.3 108.7 170.7 86.3 256 78.2C341.3 70 426.7 76 512 89.2C597.3 102.3 682.7 122.7 768 131.7C853.3 140.7 938.7 138.3 981.3 137.2L1024 136L1024 0L981.3 0C938.7 0 853.3 0 768 0C682.7 0 597.3 0 512 0C426.7 0 341.3 0 256 0C170.7 0 85.3 0 42.7 0L0 0Z"
-            fill="#206B9E"
-            //fill="url(#img1)"
-            stroke-linecap="round"
-            stroke-linejoin="miter"
-          ></path>
-        </svg>
-      </div>
-      <div className=" block sm:hidden">
-        <svg
-          id="visual"
-          viewBox="0 0 600 300"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-        >
-          <path
-            d="M0 202L33.3 197C66.7 192 133.3 182 200 197.5C266.7 213 333.3 254 400 268.3C466.7 282.7 533.3 270.3 566.7 264.2L600 258L600 0L566.7 0C533.3 0 466.7 0 400 0C333.3 0 266.7 0 200 0C133.3 0 66.7 0 33.3 0L0 0Z"
-            fill="#206B9E"
-            stroke-linecap="round"
-            stroke-linejoin="miter"
-          ></path>
-        </svg>
-      </div>
-      <div className="hidden sm:block lg:hidden">
-        <svg
-          id="visual"
-          viewBox="0 0 900 300"
-          xmlns="http://www.w3.org/2000/svg"
-          version="1.1"
-        >
-          <path
-            d="M0 151L50 147.3C100 143.7 200 136.3 300 148C400 159.7 500 190.3 600 201C700 211.7 800 202.3 850 197.7L900 193L900 0L850 0C800 0 700 0 600 0C500 0 400 0 300 0C200 0 100 0 50 0L0 0Z"
-            fill="#206B9E"
-            stroke-linecap="round"
-            stroke-linejoin="miter"
-          ></path>
-        </svg>
-      </div>
-
-      <div className="absolute hidden  ">
-        <div
-          className={clsx(
-            'absolute',
-            'h-16',
-            'sm:h-24',
-            'pr-8',
-            'md:pr-0',
-            'mx-auto',
-            'z-5'
-          )}
-        >
-          {/* <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} /> */}
+    <section className="relative ">
+      <div>
+        <div className="hidden lg:block">
+          <svg
+            id="visual"
+            viewBox="0 0 1000 200"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            className="relative top-0 left-0 bg-blend-screen bg-[url('../images/bg-medical.jpeg')] bg-cover"
+          >
+            <path
+              d="M0 110L41.7 103.2C83.3 96.3 166.7 82.7 250 75.7C333.3 68.7 416.7 68.3 500 81.7C583.3 95 666.7 122 750 134.5C833.3 147 916.7 145 958.3 144L1000 143L1000 201L958.3 201C916.7 201 833.3 201 750 201C666.7 201 583.3 201 500 201C416.7 201 333.3 201 250 201C166.7 201 83.3 201 41.7 201L0 201Z"
+              fill="#ffff"
+            ></path>
+          </svg>
+        </div>
+        <div className=" block sm:hidden">
+          <svg
+            id="visual"
+            viewBox="0 0 600 300"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            className="bg-[url('../images/bg-medical.jpeg')] bg-cover"
+          >
+            <path
+              d="M0 223L33.3 215.2C66.7 207.3 133.3 191.7 200 195.5C266.7 199.3 333.3 222.7 400 234.3C466.7 246 533.3 246 566.7 246L600 246L600 301L566.7 301C533.3 301 466.7 301 400 301C333.3 301 266.7 301 200 301C133.3 301 66.7 301 33.3 301L0 301Z"
+              fill="#ffff"
+            ></path>
+          </svg>
+        </div>
+        <div className="hidden sm:block lg:hidden">
+          <svg
+            id="visual"
+            viewBox="0 0 900 300"
+            xmlns="http://www.w3.org/2000/svg"
+            version="1.1"
+            className="bg-[url('../images/bg-medical.jpeg')] bg-cover"
+          >
+            <path
+              d="M0 193L50 182C100 171 200 149 300 154.3C400 159.7 500 192.3 600 208.7C700 225 800 225 850 225L900 225L900 301L850 301C800 301 700 301 600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
+              fill="#ffff"
+            ></path>
+          </svg>
         </div>
       </div>
       <div className="absolute top-0 lg:top-3 w-full lg:bg-transparent">
         <Popover className="relative z-10  text-white ">
           <div className="mx-auto max-w-7xl px-6  sm:px-8 ">
-            <div className="flex items-center justify-between  py-6 md:justify-start md:space-x-10">
+            <div className="flex items-center justify-between py-6 lg:py-0  md:justify-start md:space-x-10">
               <div className="flex justify-start flex-shrink">
                 <span className="sr-only">Mass League</span>
                 <div
@@ -248,9 +213,6 @@ const NavBar: StandardFC = () => {
               </Popover.Group>
             </div>
           </div>
-          {/* <div id="logoContainer" className="flex justify-center ">
-            <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
-          </div> */}
 
           <Transition
             as={Fragment}
@@ -287,7 +249,7 @@ const NavBar: StandardFC = () => {
                       </Popover.Button>
                     </div>
                   </div>
-                  <div className="mt-6">
+                  <div className="mt-6 ">
                     <nav className="grid gap-y-8">
                       {allNavLinks &&
                         allNavLinks.length &&
@@ -314,7 +276,13 @@ const NavBar: StandardFC = () => {
           </Transition>
         </Popover>
       </div>
-    </div>
+      <div
+        id="logoContainer"
+        className="absolute bottom-10 hidden w-screen md:block text-center "
+      >
+        <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
+      </div>
+    </section>
   );
 };
 

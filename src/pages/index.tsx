@@ -19,6 +19,7 @@ const IndexPage = () => {
             name
             contentNotes {
               title
+              highlightText
               content {
                 _type
                 style

@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface Props {
   label: string;
   name: string;
   selectedValue: string;
   options: Array<{ label: string; value: string }>;
+  showError: boolean;
   onChange: (eventValue: string) => void;
 }
 
@@ -14,15 +15,17 @@ const RadioButton: React.FC<Props> = ({
   selectedValue,
   options,
   onChange,
+  showError,
 }) => {
   const selectedOption = options.find(
     (option) => option.value === selectedValue
   );
   return (
     <div>
-      <label className="block text-sm  font-bold text-mgh-dark-grey">
-        {label}
-      </label>
+      <label className="text-sm  font-bold text-mgh-dark-grey">{label}</label>
+      {showError && (
+        <span className="ml-2 text-sm text-red-500">* Required</span>
+      )}
       <fieldset id={name} className="mt-2">
         <legend className="sr-only">{label}</legend>
         <div className="space-y-2">

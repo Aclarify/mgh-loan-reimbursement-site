@@ -57,6 +57,7 @@ export enum SocialMediaIcons {
   DRIBBLE = 'Dribble',
   GITHUB = 'Github',
 }
+
 export interface MediaIcon {
   icon: SocialMediaIcons;
   text: string;
@@ -92,6 +93,7 @@ export interface NavigationProps {
 export interface ContentNotes {
   title: string;
   content: RichText;
+  highlightText: string;
 }
 
 export interface RichText {
@@ -126,6 +128,47 @@ export interface Button {
   type: 'default';
   href: string;
 }
+
+export interface RuleGroup {
+  name: string;
+  rules: Array<Rule>;
+  ruleGroupType: EligibilityStatus;
+}
+
+export enum OperatorType {
+  AND = 'all',
+  OR = 'any',
+}
+
+export interface Rule {
+  name: string;
+  operator: OperatorType;
+  conditions: Array<Condition>;
+}
+
+export enum Operator {
+  EQUAL = 'equal',
+  IN = 'in',
+  NOT_IN = 'notIn',
+  GREATER_THAN = 'greaterThan',
+  GREATER_THAN_EQUAL = 'greaterThanInclusive',
+}
+
+export interface Condition {
+  name: string;
+  fieldName: string;
+  operator: Operator;
+  fieldValue?: string;
+  fieldValues?: Array<string>;
+}
+
+export interface FileType {
+  asset: {
+    originalFileName: string;
+    url: string;
+  };
+}
+
 export interface MainContentProps {
   edges: [
     {
@@ -133,13 +176,49 @@ export interface MainContentProps {
         titleText: string;
         name: string;
         contentNotes: ContentNotes;
+        highlightText: string;
         subContentTitle: string;
         subContentTitleNote: string;
+        ruleGroups: Array<RuleGroup>;
+        downloadableFile: FileType;
         form: Form;
         buttonText: string;
         button: Button;
         logoText: string;
         logo: {
+          asset: {
+            gatsbyImageData: IGatsbyImageData;
+          };
+        };
+      };
+    }
+  ];
+}
+
+export enum EligibilityStatus {
+  YES = 'YES',
+  NO = 'NO',
+  MAYBE = 'MAYBE',
+}
+export interface EligibilityStatusProps {
+  edges: [
+    {
+      node: {
+        name: string;
+        eligibilityTitle: string;
+        contentNotes: string;
+        button: Button;
+      };
+    }
+  ];
+}
+
+export interface ImagesProps {
+  edges: [
+    {
+      node: {
+        name: string;
+        image: {
           asset: {
             gatsbyImageData: IGatsbyImageData;
           };

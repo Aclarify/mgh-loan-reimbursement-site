@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import clsx from 'clsx';
 import { navigate } from 'gatsby';
 import { MainContentProps } from '../../types/content/sanity.content';
@@ -35,9 +35,12 @@ const Home: StandardFC<Props> = (props) => {
         <span className="text-3xl font-semibold font-inter-700 text-mgh-dark-grey sm:text-4xl ">
           {titleText}
         </span>
-        <div className="mt-4 font-inter-400 text-mgh-medium-grey mx-4 sm:mx-0">
+        <div className="mt-4 font-inter-400 text-mgh-medium-grey mx-4 sm:mx-0 mb-6">
           <PortableText value={contentNotes[0].content} />
         </div>
+        <span className=" font-inter-400 text-mgh-highlight-red text-semibold text-sm sm:text-base ">
+          {contentNotes[0].highlightText}
+        </span>
       </div>
       <div
         id="subContent"

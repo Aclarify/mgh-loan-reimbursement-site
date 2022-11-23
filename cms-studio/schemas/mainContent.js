@@ -47,6 +47,17 @@ export default {
       to: [{ type: 'cta' }],
     },
     {
+      title: 'Rule Groups',
+      name: 'ruleGroups',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'ruleGroup' }],
+        },
+      ],
+    },
+    {
       name: 'logoText',
       title: 'Logo Text',
       type: 'string',
@@ -58,6 +69,11 @@ export default {
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: 'downloadableFile',
+      title: 'File to download',
+      type: 'file',
     },
   ],
 };
