@@ -42,6 +42,10 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
     });
   };
 
+  // FIXME-Check how this is getting linked
+  if (contentConfig.name.includes('about')) {
+    return <div>About</div>;
+  }
   return (
     <div className="flex-col justify-center">
       <div id="contentHeader" className="flex-col  my-8 mx-6  ">
