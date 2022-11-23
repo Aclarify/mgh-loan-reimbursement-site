@@ -57,7 +57,7 @@ export const rule = {
     },
     {
       name: 'conditions',
-      title: 'Condtions',
+      title: 'Conditions',
       type: 'array',
       of: [
         {

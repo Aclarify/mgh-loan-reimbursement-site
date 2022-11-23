@@ -70,5 +70,10 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: 'downloadableFile',
+      title: 'File to download',
+      type: 'file',
+    },
   ],
 };

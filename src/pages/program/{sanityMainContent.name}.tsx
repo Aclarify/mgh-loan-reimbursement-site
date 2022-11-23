@@ -50,6 +50,7 @@ export const query = graphql`
             ruleGroupType
             rules {
               name
+              operator
               conditions {
                 fieldName
                 fieldValue

@@ -15,6 +15,17 @@ const AboutPage = () => {
           node {
             titleText
             name
+            button {
+              href
+              text
+              type
+            }
+            downloadableFile {
+              asset {
+                originalFilename
+                url
+              }
+            }
             contentNotes {
               title
               highlightText

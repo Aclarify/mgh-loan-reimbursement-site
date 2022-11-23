@@ -142,13 +142,14 @@ export enum OperatorType {
 
 export interface Rule {
   name: string;
-  conditionType: OperatorType;
+  operator: OperatorType;
   conditions: Array<Condition>;
 }
 
 export enum Operator {
   EQUAL = 'equal',
   IN = 'in',
+  NOT_IN = 'notIn',
   GREATER_THAN = 'greaterThan',
   GREATER_THAN_EQUAL = 'greaterThanInclusive',
 }
@@ -159,6 +160,13 @@ export interface Condition {
   operator: Operator;
   fieldValue?: string;
   fieldValues?: Array<string>;
+}
+
+export interface FileType {
+  asset: {
+    originalFileName: string;
+    url: string;
+  };
 }
 
 export interface MainContentProps {
@@ -172,6 +180,7 @@ export interface MainContentProps {
         subContentTitle: string;
         subContentTitleNote: string;
         ruleGroups: Array<RuleGroup>;
+        downloadableFile: FileType;
         form: Form;
         buttonText: string;
         button: Button;

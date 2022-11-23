@@ -1,12 +1,14 @@
 import { Engine, RuleProperties } from 'json-rules-engine';
 import {
   EligibilityStatus,
+  Operator,
   Rule,
   RuleGroup,
 } from '../types/content/sanity.content';
 
 export const evaluate = async (ruleGroups: Array<RuleGroup>, facts: any) => {
   const engine = new Engine();
+  // Add each rule group as new rule
   for (const ruleGroup of ruleGroups) {
     for (const rule of ruleGroup.rules) {
       const rules = frameRule(rule, ruleGroup.ruleGroupType);
@@ -25,13 +27,12 @@ export const frameRule = (
   rule: Rule,
   ruleType: EligibilityStatus
 ): RuleProperties => {
-  // TODO - Refactor the condition
   return {
     conditions: {
-      all: rule.conditions.map((condition) => ({
+      [rule.operator]: rule.conditions.map((condition) => ({
         fact: condition.fieldName,
         operator: condition.operator,
-        value: ['in', 'notIn'].includes(condition.operator)
+        value: [Operator.IN, Operator.NOT_IN].includes(condition.operator)
           ? condition.fieldValues
           : condition.fieldValue,
       })),
