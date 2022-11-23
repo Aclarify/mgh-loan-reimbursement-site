@@ -10,7 +10,7 @@ const AboutPage = () => {
     allSanityMainContent: MainContentProps;
   }>(graphql`
     query {
-      allSanityMainContent(filter: { name: { eq: "About Page" } }) {
+      allSanityMainContent(filter: { name: { eq: "about" } }) {
         edges {
           node {
             titleText
