@@ -80,7 +80,7 @@ const NavBar: StandardFC = () => {
             viewBox="0 0 600 300"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
-            className="bg-[url('../images/bg-medical.jpeg')] bg-cover"
+            className="bg-[url('../images/nav-bg-medical.png')] bg-cover"
           >
             <path
               d="M0 223L33.3 215.2C66.7 207.3 133.3 191.7 200 195.5C266.7 199.3 333.3 222.7 400 234.3C466.7 246 533.3 246 566.7 246L600 246L600 301L566.7 301C533.3 301 466.7 301 400 301C333.3 301 266.7 301 200 301C133.3 301 66.7 301 33.3 301L0 301Z"
@@ -94,7 +94,7 @@ const NavBar: StandardFC = () => {
             viewBox="0 0 900 300"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
-            className="bg-[url('../images/bg-medical.jpeg')] bg-cover"
+            className="bg-[url('../images/nav-bg-medical.png')] bg-cover"
           >
             <path
               d="M0 193L50 182C100 171 200 149 300 154.3C400 159.7 500 192.3 600 208.7C700 225 800 225 850 225L900 225L900 301L850 301C800 301 700 301 600 301C500 301 400 301 300 301C200 301 100 301 50 301L0 301Z"
