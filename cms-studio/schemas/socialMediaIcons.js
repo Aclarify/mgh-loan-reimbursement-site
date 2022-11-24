@@ -12,6 +12,7 @@ export default {
           { title: 'Facebook', value: 'Facebook' },
           { title: 'Twitter', value: 'Twitter' },
           { title: 'Instagram', value: 'Instagram' },
+          { title: 'LinkedIn', value: 'LinkedIn' },
           { title: 'GitHub', value: 'GitHub' },
           { title: 'Dribble', value: 'Dribble' },
         ],

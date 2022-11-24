@@ -66,7 +66,7 @@ const NavBar: StandardFC = () => {
             viewBox="0 0 1000 200"
             xmlns="http://www.w3.org/2000/svg"
             version="1.1"
-            className="relative top-0 left-0 bg-blend-screen bg-[url('../images/bg-medical.jpeg')] bg-cover"
+            className="relative top-0 left-0 bg-blend-screen bg-[url('../images/nav-bg-medical.png')] bg-cover"
           >
             <path
               d="M0 110L41.7 103.2C83.3 96.3 166.7 82.7 250 75.7C333.3 68.7 416.7 68.3 500 81.7C583.3 95 666.7 122 750 134.5C833.3 147 916.7 145 958.3 144L1000 143L1000 201L958.3 201C916.7 201 833.3 201 750 201C666.7 201 583.3 201 500 201C416.7 201 333.3 201 250 201C166.7 201 83.3 201 41.7 201L0 201Z"
