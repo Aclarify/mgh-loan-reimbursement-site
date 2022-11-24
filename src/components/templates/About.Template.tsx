@@ -24,8 +24,8 @@ const About: StandardFC<Props> = (props) => {
         </div>
         <div className="flex justify-center mt-6">
           <a
-            className="inline-flex items-center rounded-md border border-transparent bg-mgh-primary px-3 py-2 text-sm font-inter-600 font-semibold leading-4 text-white shadow-sm hover:bg-mgh-primary-dark focus:outline-none focus:ring-2 focus:ring-mgh-primary-dark focus:ring-offset-2"
-            href={`${downloadableFile.asset.url}?dl=`}
+            className="inline-flex items-center rounded-md border border-transparent bg-mgh-primary px-3 py-2 text-sm font-inter-600 font-semibold leading-4 text-white shadow-sm hover:bg-mgh-primary-dark focus:outline-none "
+            href={`${downloadableFile.asset.url}?dl=SLRP_FAQ.pdf`}
           >
             {button.text}
           </a>
