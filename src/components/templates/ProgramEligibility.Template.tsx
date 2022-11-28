@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import {
-  EligibilityStatus,
-  MainContentProps,
-} from '../../types/content/sanity.content';
+import { MainContentProps } from '../../types/content/sanity.content';
 import { StandardFC } from '../../types/libs/react.lib';
 import { PortableText } from '@portabletext/react';
 import Form from '../organisms/form/Form.Organism';
@@ -46,6 +43,31 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
   if (contentConfig.name.includes('about')) {
     return <div>About</div>;
   }
+
+  const components = {
+    types: {
+      break: (props: any) => {
+        const { style } = props.value;
+        if (style === 'lineBreak') {
+          return <br className="lineBreak" />;
+        }
+        return null;
+      },
+    },
+    marks: {
+      internalLink: (props) => {
+        return (
+          <a
+            className="underline text-[#206B9E] hover:cursor-pointer"
+            href={props.value.href}
+          >
+            {props.children}
+          </a>
+        );
+      },
+    },
+  };
+
   return (
     <div className="flex-col justify-center">
       <div id="contentHeader" className="flex-col  my-8 mx-6  ">
@@ -53,7 +75,10 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
           {titleText}
         </span>
         <div className="mt-4 font-inter-400 text-base text-mgh-medium-grey ">
-          <PortableText value={contentNotes[0].content} />
+          <PortableText
+            value={contentNotes[0]._rawContent}
+            components={components}
+          />
         </div>
       </div>
       <div

@@ -32,6 +32,7 @@ export const query = graphql`
           name
           contentNotes {
             title
+            _rawContent
             content {
               _type
               style

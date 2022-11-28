@@ -5,6 +5,7 @@ import {
   EligibilityStatusProps,
 } from '../../../types/content/sanity.content';
 import Button from '../../atoms/formcontrols/Button.Atom';
+import { PortableText } from '@portabletext/react';
 
 interface EligibilityProps {
   eligibility: EligibilityStatus;
@@ -20,7 +21,20 @@ const Eligibility = (props: EligibilityProps) => {
           node {
             name
             eligibilityTitle
-            contentNotes
+            contentNotes {
+              title
+              _rawContent
+              content {
+                _type
+                style
+                children {
+                  _key
+                  _type
+                  text
+                  marks
+                }
+              }
+            }
             button {
               text
               href
@@ -34,6 +48,41 @@ const Eligibility = (props: EligibilityProps) => {
   const resultToShow = eligibilityStatuses.find(
     (eligibility) => eligibility.node.name == props.eligibility
   );
+  const components = {
+    types: {
+      break: (props: any) => {
+        const { style } = props.value;
+        if (style === 'lineBreak') {
+          return <br className="lineBreak" />;
+        }
+        return null;
+      },
+    },
+    marks: {
+      internalLink: (props) => {
+        return (
+          <a className="underline" href={props.value.href}>
+            {props.children}
+          </a>
+        );
+      },
+      externalLink: ({ value, children }) => {
+        const { href } = value;
+
+        return (
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener"
+            className="text-[#206B9E] hover:cursor-pointer"
+          >
+            {children}
+          </a>
+        );
+      },
+    },
+  };
+
   return (
     resultToShow && (
       <div>
@@ -43,10 +92,11 @@ const Eligibility = (props: EligibilityProps) => {
               {resultToShow.node.eligibilityTitle}
             </span>
           </div>
-          <div className="flex justify-center whitespace-normal mx-20 md:mx-60 mt-6 text-left">
-            <span className=" font-inter-400 font-normal text-mgh-medium-grey text-base ">
-              {resultToShow.node.contentNotes}
-            </span>
+          <div className="flex  whitespace-normal mx-20 md:mx-60 mt-6 text-left">
+            <PortableText
+              value={resultToShow.node.contentNotes._rawContent}
+              components={components}
+            />
           </div>
         </div>
         <div className="flex justify-center mt-6">

@@ -15,6 +15,7 @@
     "sanity"
   ],
   "dependencies": {
+    "@react-icons/all-files": "^4.1.0",
     "@sanity/base": "^2.33.2",
     "@sanity/core": "^2.33.2",
     "@sanity/default-layout": "^2.33.2",
@@ -26,6 +27,7 @@
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
+    "react-icons": "^4.6.0",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {}

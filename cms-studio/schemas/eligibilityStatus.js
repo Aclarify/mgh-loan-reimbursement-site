@@ -23,7 +23,7 @@ export default {
     {
       title: 'Content Notes',
       name: 'contentNotes',
-      type: 'string',
+      type: 'contentCoordinator',
     },
     {
       title: 'Button',
