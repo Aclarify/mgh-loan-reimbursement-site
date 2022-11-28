@@ -158,7 +158,7 @@ const NavBar: StandardFC = () => {
                       <Popover.Button
                         className={clsx(
                           open ? 'text-white-900 ' : 'text-white-500 ',
-                          'group inline-flex items-center  text-base font-medium '
+                          'group inline-flex items-center  text-base font-medium md:mr-8'
                         )}
                       >
                         <span>{linkGroupName}</span>
