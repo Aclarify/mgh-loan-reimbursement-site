@@ -278,7 +278,7 @@ const NavBar: StandardFC = () => {
       </div>
       <div
         id="logoContainer"
-        className="absolute bottom-10 hidden w-screen md:block text-center "
+        className="absolute bottom-0 lg:bottom-10 w-screen text-center lg:h-24 md:h-20 h-14 "
       >
         <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
       </div>
