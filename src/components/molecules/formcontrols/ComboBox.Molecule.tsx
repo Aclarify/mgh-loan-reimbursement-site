@@ -79,7 +79,7 @@ const ComboBox: React.FC<Props> = ({
                 className={({ active }) =>
                   clsx(
                     'relative cursor-default select-none py-2 pl-3 pr-9',
-                    active ? 'bg-mgh-primary text-white' : 'text-mgh-light-grey'
+                    active ? 'bg-mgh-primary text-white' : 'text-mgh-dark-grey'
                   )
                 }
               >
