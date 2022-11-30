@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid';
 import { Combobox } from '@headlessui/react';
 import clsx from 'clsx';
@@ -21,6 +21,8 @@ const ComboBox: React.FC<Props> = ({
 }) => {
   const [query, setQuery] = useState('');
   const [showOptions, setShowOptions] = useState(false);
+  const wrapperRef = useRef(null);
+
   const selectedOption = options.find(
     (option) => option.value === selectedValue
   );
@@ -30,9 +32,35 @@ const ComboBox: React.FC<Props> = ({
       : options.filter((option) => {
           return option.label.toLowerCase().includes(query.toLowerCase());
         });
+
+  /**
+   * Hook that alerts clicks outside of the passed ref
+   */
+  const useOutsideAlerter = (ref) => {
+    useEffect(() => {
+      /**
+       * Alert if clicked on outside of element
+       */
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          // alert('You clicked outside of me!');
+          setShowOptions(false);
+        }
+      }
+      // Bind the event listener
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  };
+
+  useOutsideAlerter(wrapperRef);
   return (
     <Combobox
       as="div"
+      ref={wrapperRef}
       value={selectedOption ? selectedOption.label : ''}
       onChange={(event) => {
         setShowOptions(false);
