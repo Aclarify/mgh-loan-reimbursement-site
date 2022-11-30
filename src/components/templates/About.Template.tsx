@@ -11,6 +11,30 @@ const About: StandardFC<Props> = (props) => {
   const contentConfig = props.content.edges[0].node;
   const { titleText, contentNotes, button, downloadableFile } = contentConfig;
 
+  const components = {
+    types: {
+      break: (props: any) => {
+        const { style } = props.value;
+        if (style === 'lineBreak') {
+          return <br className="lineBreak" />;
+        }
+        return null;
+      },
+    },
+    marks: {
+      internalLink: (props) => {
+        return (
+          <a
+            className="underline text-[#206B9E] hover:cursor-pointer"
+            href={props.value.href}
+          >
+            {props.children}
+          </a>
+        );
+      },
+    },
+  };
+
   return (
     <div className="flex-col justify-center">
       <div id="contentHeader" className="flex-col text-justify">
@@ -20,7 +44,10 @@ const About: StandardFC<Props> = (props) => {
           </span>
         </div>
         <div className="mt-4 font-inter-400 text-mgh-medium-grey mx-6 sm:mx-2 ">
-          <PortableText value={contentNotes[0].content} />
+          <PortableText
+            value={contentNotes[0]._rawContent}
+            components={components}
+          />
         </div>
         <div className="flex justify-center mt-6">
           <a

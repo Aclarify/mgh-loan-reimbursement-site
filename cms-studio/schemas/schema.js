@@ -11,7 +11,7 @@ import textLogo from './textLogo';
 import navigation from './navigation';
 import cta from './cta';
 import textIcon from './textIcon';
-import contentCoordinator from './contentCoordinator';
+import contentCoordinator, { breakType } from './contentCoordinator';
 import socialMediaIcons from './socialMediaIcons';
 import textIconGroup from './textIconGroup';
 import mainContent from './mainContent';
@@ -35,6 +35,7 @@ export default createSchema({
     link,
     cta,
     textIcon,
+    breakType,
     contentCoordinator,
     navigation,
     linkGroup,

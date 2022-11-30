@@ -29,6 +29,7 @@ const AboutPage = () => {
             contentNotes {
               title
               highlightText
+              _rawContent
               content {
                 _type
                 style

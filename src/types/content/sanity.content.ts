@@ -206,7 +206,7 @@ export interface EligibilityStatusProps {
       node: {
         name: string;
         eligibilityTitle: string;
-        contentNotes: string;
+        contentNotes: ContentNotes;
         button: Button;
       };
     }
