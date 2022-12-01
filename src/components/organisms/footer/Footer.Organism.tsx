@@ -57,7 +57,6 @@ const Footer: StandardFC = () => {
     mediaIconList,
   } = footerConfig;
   const topFooterNavLinks = links;
-  const bottomFooterNavLinks = linkGroup.links;
   const textIcons = contactIconGroup.textIcons;
   const phoneNumber = textIcons.find((x) => x.icon === 'phone')?.text;
   const emailID = textIcons.find((x) => x.icon === 'envelope')?.text;
@@ -141,9 +140,7 @@ const Footer: StandardFC = () => {
           version="1.1"
         >
           <path
-            // d="M0 127L83.3 116.5C166.7 106 333.3 85 500 84.5C666.7 84 833.3 104 916.7 114L1000 124L1000 201L916.7 201C833.3 201 666.7 201 500 201C333.3 201 166.7 201 83.3 201L0 201Z"
             d="M0 96L83.3 91.3C166.7 86.7 333.3 77.3 500 77.2C666.7 77 833.3 86 916.7 90.5L1000 95L1000 131L916.7 131C833.3 131 666.7 131 500 131C333.3 131 166.7 131 83.3 131L0 131Z"
-            // d="M0 115L83.3 113C166.7 111 333.3 107 500 106.8C666.7 106.7 833.3 110.3 916.7 112.2L1000 114L1000 131L916.7 131C833.3 131 666.7 131 500 131C333.3 131 166.7 131 83.3 131L0 131Z"
             fill="#206B9E"
             stroke-linecap="round"
             stroke-linejoin="miter"
@@ -285,16 +282,6 @@ const Footer: StandardFC = () => {
                     {copyRightText}
                   </p>
                 </div>
-                {bottomFooterNavLinks.map((link, index) => (
-                  <div
-                    key={index}
-                    className="text-sm font-light text-white-400 text-center sm:mr-4"
-                  >
-                    <Link key={link.text} to={link.href}>
-                      {link.text}
-                    </Link>
-                  </div>
-                ))}
               </div>
             </section>
           </div>
