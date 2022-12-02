@@ -7,6 +7,7 @@ import Logo from '../atoms/logo/Logo.Atom';
 import { PortableText } from '@portabletext/react';
 import Form from '../organisms/form/Form.Organism';
 import Button from '../atoms/formcontrols/Button.Atom';
+import { applyNow } from '../../lib/apply/apply.lib';
 
 interface Props {
   content: MainContentProps;
@@ -27,7 +28,6 @@ const Home: StandardFC<Props> = (props) => {
   const transitToProgram = (formValue: any) => {
     navigate(`/program/${formValue[formControl.name]}`);
   };
-  const applyNow = () => {};
 
   return (
     <div className="flex-col justify-center">
@@ -36,9 +36,9 @@ const Home: StandardFC<Props> = (props) => {
           {titleText}
         </span>
         <div className="mt-4 font-inter-400 text-mgh-medium-grey mx-4 sm:mx-0 mb-6 text-left">
-          <PortableText value={contentNotes[0].content} />
+          <PortableText value={contentNotes[0].content as any} />
         </div>
-        <span className=" font-inter-400 text-mgh-highlight-red text-semibold text-sm sm:text-base ">
+        <span className=" font-inter-400 text-mgh-highlight-red font-bold text-sm sm:text-base ">
           {contentNotes[0].highlightText}
         </span>
       </div>
@@ -70,12 +70,12 @@ const Home: StandardFC<Props> = (props) => {
             </div>
             <div>
               <div className="flex justify-center mt-12 mb-4">
-                <span className=" text-base text-mgh-dark-grey  font-inter-600 font-medium">
+                <span className="text-lg text-mgh-dark-grey font-inter-400 font-medium">
                   {logoText}
                 </span>
               </div>
               <div id="contentFooterLogo" className="flex justify-center">
-                <div className={clsx('h-16', 'sm:h-24')}>
+                <div className={clsx('relative', 'h-16', 'sm:h-24', 'lg:w-64')}>
                   <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
                 </div>
               </div>

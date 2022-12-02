@@ -231,14 +231,7 @@ const NavBar: StandardFC = () => {
                 <div className="px-5 pt-5 pb-6">
                   <div className="flex items-center justify-between">
                     <div
-                      className={clsx(
-                        'relative',
-                        'h-16',
-                        'w-auto',
-                        'sm:h-24',
-                        'pr-8',
-                        'md:pr-0'
-                      )}
+                      className={clsx('relative', 'h-16', 'w-auto', 'sm:h-24')}
                     >
                       <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
                     </div>
@@ -278,7 +271,7 @@ const NavBar: StandardFC = () => {
       </div>
       <div
         id="logoContainer"
-        className="absolute bottom-0 lg:bottom-10 w-screen text-center lg:h-24 md:h-20 h-14 "
+        className="absolute -bottom-5 lg:bottom-5 w-screen text-center lg:h-24 md:h-20 h-14 "
       >
         <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
       </div>

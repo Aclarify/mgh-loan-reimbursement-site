@@ -10,7 +10,7 @@ const AboutPage = () => {
     allSanityMainContent: MainContentProps;
   }>(graphql`
     query {
-      allSanityMainContent(filter: { name: { eq: "about" } }) {
+      allSanityMainContent(filter: { name: { eq: "About" } }) {
         edges {
           node {
             titleText
@@ -57,4 +57,4 @@ const AboutPage = () => {
 
 export default AboutPage;
 
-export const Head: HeadFC = () => <title>About</title>;
+export const Head: HeadFC = () => <title>MA Repay Program | About</title>;

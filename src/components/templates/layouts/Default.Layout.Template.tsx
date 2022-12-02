@@ -11,16 +11,18 @@ const DefaultLayout: StandardFC<DefaultLayoutProps> = ({ children }) => {
   return (
     <>
       <NavBar />
-      <main className={clsx('h-full', 'w-full', 'relative')}>{children}</main>
+      <main className={clsx('h-full', 'w-full', 'relative', 'py-8', 'px-6')}>
+        {children}
+      </main>
       <CookieConsent
         location="bottom"
         buttonText="I understand"
         cookieName="cookieConsent"
-        style={{ background: '#2B373B' }}
+        style={{ background: 'rgba(239, 239, 239, 0.6)' }}
         buttonStyle={{
-          background: '#206B9E',
+          background: 'rgb(32 107 158)',
           border: 'none',
-          borderRadius: '4px',
+          borderRadius: '6px',
           fontFamily: 'inter',
           color: '#fff',
           fontSize: '14px',
@@ -28,9 +30,12 @@ const DefaultLayout: StandardFC<DefaultLayoutProps> = ({ children }) => {
         }}
         expires={150}
       >
-        <span className="font-inter text-white text-base text-normal">
+        <span
+          style={{ color: '#005696' }}
+          className="font-inter text-base font-semibold"
+        >
           {' '}
-          This website might use cookies to enhance the user experience.{' '}
+          This website uses cookies to enhance the user experience.{' '}
         </span>
       </CookieConsent>
       <Footer />

@@ -12,7 +12,7 @@ const IndexPage = () => {
     allSanityMainContent: MainContentProps;
   }>(graphql`
     query {
-      allSanityMainContent(filter: { name: { eq: "Home Page" } }) {
+      allSanityMainContent(filter: { name: { eq: "Home" } }) {
         edges {
           node {
             titleText
@@ -79,4 +79,4 @@ const IndexPage = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>;
+export const Head: HeadFC = () => <title>MA Repay Program | Home</title>;
