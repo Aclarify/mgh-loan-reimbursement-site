@@ -11,7 +11,9 @@ const DefaultLayout: StandardFC<DefaultLayoutProps> = ({ children }) => {
   return (
     <>
       <NavBar />
-      <main className={clsx('h-full', 'w-full', 'relative')}>{children}</main>
+      <main className={clsx('h-full', 'w-full', 'relative', 'py-8', 'px-6')}>
+        {children}
+      </main>
       <CookieConsent
         location="bottom"
         buttonText="I understand"
