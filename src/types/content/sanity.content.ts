@@ -175,7 +175,7 @@ export interface MainContentProps {
       node: {
         titleText: string;
         name: string;
-        contentNotes: ContentNotes;
+        contentNotes: ContentNotes[];
         highlightText: string;
         subContentTitle: string;
         subContentTitleNote: string;
