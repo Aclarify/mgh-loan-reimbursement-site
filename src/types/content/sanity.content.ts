@@ -115,12 +115,12 @@ export interface FormControl {
 }
 
 export enum FormControlType {
-  TEXTINOUT = 'textInput',
-  TEXTAREA = 'textArea',
-  SINGLESELECT = 'singleSelect',
-  MULTISELECT = 'multiSelect',
+  // TEXTINOUT = 'textInput',
+  // TEXTAREA = 'textArea',
+  // MULTISELECT = 'multiSelect',
+  // CHECKBOX = 'checkBox',
   RADIO = 'radio',
-  CHECKBOX = 'checkBox',
+  SINGLESELECT = 'singleSelect',
 }
 
 export interface Button {
