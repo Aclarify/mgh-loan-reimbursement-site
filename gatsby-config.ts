@@ -5,8 +5,8 @@ import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `MGH Loan Reimbursement Eligibility Site`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Mass League Repay Program`,
+    siteUrl: `https://ma-repay.massleague.org/`,
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -37,7 +37,7 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/icon.png',
+        icon: 'src/images/favicon.png',
       },
     },
     'gatsby-plugin-mdx',
@@ -60,13 +60,13 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'MGH Loan Reimbursement Eligibility Site',
-        short_name: 'MGH Loan Reimbursement',
+        name: 'Mass League Repay Program',
+        short_name: 'Mass League Repay Program',
         start_url: '/',
         // These can be imported once ESM support lands
-        background_color: '#ffe491',
-        theme_color: '#004ca3',
-        icon: 'src/images/icon.png',
+        background_color: '#AFBD21',
+        theme_color: '#005696',
+        icon: 'src/images/favicon.png',
       },
     },
   ],
