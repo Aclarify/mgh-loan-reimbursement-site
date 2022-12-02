@@ -90,4 +90,6 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => <title>Program Page</title>;
+export const Head: HeadFC = () => (
+  <title>MA Repay Program | Program Page</title>
+);
