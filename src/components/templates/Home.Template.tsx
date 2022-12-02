@@ -7,6 +7,7 @@ import Logo from '../atoms/logo/Logo.Atom';
 import { PortableText } from '@portabletext/react';
 import Form from '../organisms/form/Form.Organism';
 import Button from '../atoms/formcontrols/Button.Atom';
+import { applyNow } from '../../lib/apply/apply.lib';
 
 interface Props {
   content: MainContentProps;
@@ -27,7 +28,6 @@ const Home: StandardFC<Props> = (props) => {
   const transitToProgram = (formValue: any) => {
     navigate(`/program/${formValue[formControl.name]}`);
   };
-  const applyNow = () => {};
 
   return (
     <div className="flex-col justify-center">

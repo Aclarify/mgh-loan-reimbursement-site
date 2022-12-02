@@ -6,11 +6,12 @@ import {
 } from '../../../types/content/sanity.content';
 import Button from '../../atoms/formcontrols/Button.Atom';
 import { PortableText } from '@portabletext/react';
+import { applyNow } from '../../../lib/apply/apply.lib';
 
 interface EligibilityProps {
   eligibility: EligibilityStatus;
 }
-const applyNow = () => {};
+
 const Eligibility = (props: EligibilityProps) => {
   const { allSanityEligibilityStatus } = useStaticQuery<{
     allSanityEligibilityStatus: EligibilityStatusProps;
