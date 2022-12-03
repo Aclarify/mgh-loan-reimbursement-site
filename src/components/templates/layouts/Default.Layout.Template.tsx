@@ -16,7 +16,7 @@ const DefaultLayout: StandardFC<DefaultLayoutProps> = ({ children }) => {
         location="bottom"
         buttonText="I understand"
         cookieName="cookieConsent"
-        style={{ background: '#2B373B' }}
+        style={{ background: '#FAf5f5f5' }}
         buttonStyle={{
           background: '#206B9E',
           border: 'none',
@@ -28,9 +28,9 @@ const DefaultLayout: StandardFC<DefaultLayoutProps> = ({ children }) => {
         }}
         expires={150}
       >
-        <span className="font-inter text-white text-base text-normal">
+        <span className="font-inter text-mgh-primary text-base text-normal">
           {' '}
-          This website might use cookies to enhance the user experience.{' '}
+          This website uses cookies to enhance the user experience.{' '}
         </span>
       </CookieConsent>
       <Footer />
