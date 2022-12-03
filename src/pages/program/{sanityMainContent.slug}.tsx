@@ -24,8 +24,8 @@ const ProgramEligibiltyPage = ({
 export default ProgramEligibiltyPage;
 
 export const query = graphql`
-  query($slug: String!) {
-    allSanityMainContent(filter: { slug: { eq: $slug } }) {
+  query {
+    allSanityMainContent(filter: { isProgram: { eq: true } }) {
       edges {
         node {
           titleText
