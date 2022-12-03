@@ -24,12 +24,13 @@ const ProgramEligibiltyPage = ({
 export default ProgramEligibiltyPage;
 
 export const query = graphql`
-  query($name: String!) {
-    allSanityMainContent(filter: { name: { eq: $name } }) {
+  query($slug: String!) {
+    allSanityMainContent(filter: { slug: { eq: $slug } }) {
       edges {
         node {
           titleText
           name
+          slug
           contentNotes {
             title
             _rawContent
@@ -90,6 +91,15 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC = () => (
-  <title>MA Repay Program | Program Page</title>
+export const Head: HeadFC = ({ data }) => (
+  <title>
+    <>
+      MA Repay Program |{' '}
+      {
+        (data as {
+          allSanityMainContent: MainContentProps;
+        }).allSanityMainContent.edges[0].node.name
+      }
+    </>
+  </title>
 );
