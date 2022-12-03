@@ -14,7 +14,7 @@ const Logo: StandardFC<LogoProps> = ({ gatsbyImageData, options }) => (
     image={gatsbyImageData}
     alt="Logo"
     className={clsx('h-full', 'w-auto')}
-    {...{ objectFit: 'contain', objectPosition: 'left', ...options }}
+    {...{ objectFit: 'contain', ...options }}
   />
 );
 

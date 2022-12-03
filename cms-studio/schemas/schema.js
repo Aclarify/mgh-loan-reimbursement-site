@@ -11,13 +11,17 @@ import textLogo from './textLogo';
 import navigation from './navigation';
 import cta from './cta';
 import textIcon from './textIcon';
-import contentCoordinator from './contentCoordinator';
+import contentCoordinator, { breakType } from './contentCoordinator';
 import socialMediaIcons from './socialMediaIcons';
 import textIconGroup from './textIconGroup';
 import mainContent from './mainContent';
 import formControl from './formControl';
 import form from './form';
 import formControlOptions from './formControlOptions';
+import footerTextLogo from './footerTextLogo';
+import eligibilityStatus from './eligibilityStatus';
+import images from './images';
+import rules, { condition, rule } from './rules';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -31,16 +35,23 @@ export default createSchema({
     link,
     cta,
     textIcon,
+    breakType,
     contentCoordinator,
     navigation,
     linkGroup,
     textLogo,
+    footerTextLogo,
     textIconGroup,
     socialMediaIcons,
     mainContent,
     formControl,
     form,
     formControlOptions,
+    eligibilityStatus,
+    images,
+    condition,
+    rule,
+    rules,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
   ]),

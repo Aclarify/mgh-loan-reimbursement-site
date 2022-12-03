@@ -25,6 +25,10 @@ export interface Cta {
 export interface TextLogo {
   titleLine1: string;
   titleLine2: string;
+  type: 'default';
+}
+export interface FooterTextLogo {
+  titleLine: string;
   titleNote: string;
   type: 'default';
 }
@@ -53,6 +57,7 @@ export enum SocialMediaIcons {
   DRIBBLE = 'Dribble',
   GITHUB = 'Github',
 }
+
 export interface MediaIcon {
   icon: SocialMediaIcons;
   text: string;
@@ -76,6 +81,7 @@ export interface NavigationProps {
           linkGroup: LinkGroup;
           contactIconGroup: TextIconGroup;
           textLogo: TextLogo;
+          footerTextLogo: FooterTextLogo;
           footerDescription: FooterDescription;
           mediaIconList: MediaIcon[];
         };
@@ -87,6 +93,8 @@ export interface NavigationProps {
 export interface ContentNotes {
   title: string;
   content: RichText;
+  highlightText: string;
+  _rawContent: any;
 }
 
 export interface RichText {
@@ -108,12 +116,12 @@ export interface FormControl {
 }
 
 export enum FormControlType {
-  TEXTINOUT = 'textInput',
-  TEXTAREA = 'textArea',
-  SINGLESELECT = 'singleSelect',
-  MULTISELECT = 'multiSelect',
+  // TEXTINOUT = 'textInput',
+  // TEXTAREA = 'textArea',
+  // MULTISELECT = 'multiSelect',
+  // CHECKBOX = 'checkBox',
   RADIO = 'radio',
-  CHECKBOX = 'checkBox',
+  SINGLESELECT = 'singleSelect',
 }
 
 export interface Button {
@@ -121,18 +129,98 @@ export interface Button {
   type: 'default';
   href: string;
 }
+
+export interface RuleGroup {
+  name: string;
+  rules: Array<Rule>;
+  ruleGroupType: EligibilityStatus;
+}
+
+export enum OperatorType {
+  AND = 'all',
+  OR = 'any',
+}
+
+export interface Rule {
+  name: string;
+  operator: OperatorType;
+  conditions: Array<Condition>;
+}
+
+export enum Operator {
+  EQUAL = 'equal',
+  IN = 'in',
+  NOT_IN = 'notIn',
+  GREATER_THAN = 'greaterThan',
+  GREATER_THAN_EQUAL = 'greaterThanInclusive',
+}
+
+export interface Condition {
+  name: string;
+  fieldName: string;
+  operator: Operator;
+  fieldValue?: string;
+  fieldValues?: Array<string>;
+}
+
+export interface FileType {
+  asset: {
+    originalFileName: string;
+    url: string;
+  };
+}
+
 export interface MainContentProps {
   edges: [
     {
       node: {
         titleText: string;
         name: string;
-        contentNotes: ContentNotes;
+        slug?: string;
+        contentNotes: ContentNotes[];
+        highlightText: string;
         subContentTitle: string;
         subContentTitleNote: string;
+        ruleGroups: Array<RuleGroup>;
+        downloadableFile: FileType;
         form: Form;
+        buttonText: string;
+        button: Button;
         logoText: string;
         logo: {
+          asset: {
+            gatsbyImageData: IGatsbyImageData;
+          };
+        };
+      };
+    }
+  ];
+}
+
+export enum EligibilityStatus {
+  YES = 'YES',
+  NO = 'NO',
+  MAYBE = 'MAYBE',
+}
+export interface EligibilityStatusProps {
+  edges: [
+    {
+      node: {
+        name: string;
+        eligibilityTitle: string;
+        contentNotes: ContentNotes;
+        button: Button;
+      };
+    }
+  ];
+}
+
+export interface ImagesProps {
+  edges: [
+    {
+      node: {
+        name: string;
+        image: {
           asset: {
             gatsbyImageData: IGatsbyImageData;
           };

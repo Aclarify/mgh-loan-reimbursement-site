@@ -9,6 +9,16 @@ export default {
       type: 'string',
     },
     {
+      name: 'slug',
+      title: 'Page Slug',
+      type: 'string',
+    },
+    {
+      name: 'isProgram',
+      title: 'Is Program Page',
+      type: 'boolean',
+    },
+    {
       name: 'titleText',
       title: 'Content Title',
       type: 'string',
@@ -36,6 +46,28 @@ export default {
       to: [{ type: 'form' }],
     },
     {
+      name: 'buttonText',
+      title: 'Button Text',
+      type: 'string',
+    },
+    {
+      title: 'Button',
+      name: 'button',
+      type: 'reference',
+      to: [{ type: 'cta' }],
+    },
+    {
+      title: 'Rule Groups',
+      name: 'ruleGroups',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'ruleGroup' }],
+        },
+      ],
+    },
+    {
       name: 'logoText',
       title: 'Logo Text',
       type: 'string',
@@ -47,6 +79,11 @@ export default {
       options: {
         hotspot: true,
       },
+    },
+    {
+      name: 'downloadableFile',
+      title: 'File to download',
+      type: 'file',
     },
   ],
 };

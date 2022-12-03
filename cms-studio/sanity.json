@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "MGH Loan Reimbursement Eligibility Site"
+    "name": "MA Repay Program CMS"
   },
   "api": {
     "projectId": "xwbbz1k9",
