@@ -94,7 +94,6 @@ export interface ContentNotes {
   title: string;
   content: RichText;
   highlightText: string;
-  _rawContent: any;
 }
 
 export interface RichText {
@@ -176,7 +175,6 @@ export interface MainContentProps {
       node: {
         titleText: string;
         name: string;
-        slug?: string;
         contentNotes: ContentNotes[];
         highlightText: string;
         subContentTitle: string;

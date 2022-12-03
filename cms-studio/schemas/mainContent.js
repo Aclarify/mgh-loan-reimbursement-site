@@ -14,11 +14,6 @@ export default {
       type: 'string',
     },
     {
-      name: 'isProgram',
-      title: 'Is Program Page',
-      type: 'boolean',
-    },
-    {
       name: 'titleText',
       title: 'Content Title',
       type: 'string',
