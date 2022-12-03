@@ -94,6 +94,7 @@ export interface ContentNotes {
   title: string;
   content: RichText;
   highlightText: string;
+  _rawContent: any;
 }
 
 export interface RichText {
@@ -170,29 +171,25 @@ export interface FileType {
 }
 
 export interface MainContentProps {
-  edges: [
-    {
-      node: {
-        titleText: string;
-        name: string;
-        contentNotes: ContentNotes[];
-        highlightText: string;
-        subContentTitle: string;
-        subContentTitleNote: string;
-        ruleGroups: Array<RuleGroup>;
-        downloadableFile: FileType;
-        form: Form;
-        buttonText: string;
-        button: Button;
-        logoText: string;
-        logo: {
-          asset: {
-            gatsbyImageData: IGatsbyImageData;
-          };
-        };
-      };
-    }
-  ];
+  titleText: string;
+  name: string;
+  slug?: string;
+  isProgram?: boolean;
+  contentNotes: ContentNotes[];
+  highlightText: string;
+  subContentTitle: string;
+  subContentTitleNote: string;
+  ruleGroups: Array<RuleGroup>;
+  downloadableFile: FileType;
+  form: Form;
+  buttonText: string;
+  button: Button;
+  logoText: string;
+  logo: {
+    asset: {
+      gatsbyImageData: IGatsbyImageData;
+    };
+  };
 }
 
 export enum EligibilityStatus {
