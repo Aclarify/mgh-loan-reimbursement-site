@@ -12,7 +12,7 @@ const IndexPage = () => {
     allSanityMainContent: MainContentProps;
   }>(graphql`
     query {
-      allSanityMainContent(filter: { name: { eq: "home" } }) {
+      allSanityMainContent(filter: { name: { eq: "Home" } }) {
         edges {
           node {
             titleText

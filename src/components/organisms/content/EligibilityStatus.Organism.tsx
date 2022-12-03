@@ -5,7 +5,7 @@ import {
   EligibilityStatusProps,
 } from '../../../types/content/sanity.content';
 import Button from '../../atoms/formcontrols/Button.Atom';
-import { PortableText } from '@portabletext/react';
+import { PortableText, PortableTextReactComponents } from '@portabletext/react';
 import { applyNow } from '../../../lib/apply/apply.lib';
 
 interface EligibilityProps {
@@ -60,14 +60,14 @@ const Eligibility = (props: EligibilityProps) => {
       },
     },
     marks: {
-      internalLink: (props) => {
+      internalLink: (props: any) => {
         return (
           <a className="underline" href={props.value.href}>
             {props.children}
           </a>
         );
       },
-      externalLink: ({ value, children }) => {
+      externalLink: ({ value, children }: any) => {
         const { href } = value;
 
         return (
@@ -96,7 +96,7 @@ const Eligibility = (props: EligibilityProps) => {
           <div className="flex  whitespace-normal mx-20 md:mx-60 mt-6 text-left">
             <PortableText
               value={resultToShow.node.contentNotes._rawContent}
-              components={components}
+              components={components as Partial<PortableTextReactComponents>}
             />
           </div>
         </div>
