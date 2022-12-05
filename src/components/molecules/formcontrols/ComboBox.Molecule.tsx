@@ -19,7 +19,6 @@ const ComboBox: React.FC<Props> = ({
   onChange,
   showError,
 }) => {
-  options.sort((a, b) => (a.label > b.label ? 1 : -1));
   const [query, setQuery] = useState('');
   const [showOptions, setShowOptions] = useState(false);
   const wrapperRef = useRef(null);
