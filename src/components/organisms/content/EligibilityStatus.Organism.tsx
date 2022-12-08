@@ -93,7 +93,7 @@ const Eligibility = (props: EligibilityProps) => {
               {resultToShow.node.eligibilityTitle}
             </span>
           </div>
-          <div className="flex  whitespace-normal mx-20 md:mx-60 mt-6 text-left">
+          <div className="flex whitespace-normal mx-6 sm:mx-20 md:mx-60 mt-6 text-left">
             <PortableText
               value={resultToShow.node.contentNotes._rawContent}
               components={components as Partial<PortableTextReactComponents>}
