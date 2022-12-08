@@ -81,9 +81,15 @@ export default {
       },
     },
     {
-      name: 'downloadableFile',
+      name: 'downloadableFiles',
       title: 'File to download',
-      type: 'file',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'fileDownload' }],
+        },
+      ],
     },
   ],
 };

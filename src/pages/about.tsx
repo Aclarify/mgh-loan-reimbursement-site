@@ -20,15 +20,18 @@ const AboutPage = () => {
               text
               type
             }
-            downloadableFile {
-              asset {
-                originalFilename
-                url
+            downloadableFiles {
+              fileName
+              btnText
+              downloadableFile {
+                asset {
+                  originalFilename
+                  url
+                }
               }
             }
             contentNotes {
               title
-              highlightText
               _rawContent
               content {
                 _type

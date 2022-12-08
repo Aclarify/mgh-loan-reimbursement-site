@@ -45,6 +45,7 @@ const NavBar: StandardFC = () => {
             textLogo {
               titleLine1
               titleLine2
+              href
             }
           }
         }
@@ -122,6 +123,7 @@ const NavBar: StandardFC = () => {
                   <TextLogo
                     titleLine1={textLogo.titleLine1}
                     titleLine2={textLogo.titleLine2}
+                    href={textLogo.href}
                   />
                 </div>
               </div>

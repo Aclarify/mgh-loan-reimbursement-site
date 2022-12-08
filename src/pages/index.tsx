@@ -19,7 +19,16 @@ const IndexPage = () => {
             name
             contentNotes {
               title
-              highlightText
+              highlightText {
+                _type
+                style
+                children {
+                  _key
+                  _type
+                  text
+                  marks
+                }
+              }
               content {
                 _type
                 style
