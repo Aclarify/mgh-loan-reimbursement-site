@@ -26,13 +26,6 @@ const config: GatsbyConfig = {
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
-    // TODO: Uncomment when GA trackingID is known
-    // {
-    //   resolve: 'gatsby-plugin-google-analytics',
-    //   options: {
-    //     trackingId: '',
-    //   },
-    // },
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-manifest',
@@ -72,4 +65,13 @@ const config: GatsbyConfig = {
   ],
 };
 
+if (process.env.GOOGLE_ANALYTICS_ID) {
+  config.plugins?.push({
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: process.env.GOOGLE_ANALYTICS_ID,
+      enableWebVitalsTracking: true,
+    },
+  });
+}
 export default config;

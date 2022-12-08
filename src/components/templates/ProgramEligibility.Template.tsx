@@ -9,8 +9,7 @@ interface Props {
   content: MainContentProps;
 }
 
-const ProgramEligibility: StandardFC<Props> = (props) => {
-  const contentConfig = props.content.edges[0].node;
+const ProgramEligibility: StandardFC<Props> = ({ content, ...props }) => {
   const {
     titleText,
     contentNotes,
@@ -18,7 +17,8 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
     subContentTitleNote,
     form,
     ruleGroups,
-  } = contentConfig;
+  } = content;
+
   const [showCalculationStatus, setshowCalculationStatus] = useState(false);
 
   const [eligibility, setEligibility] = useState('');
@@ -39,11 +39,6 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
     });
   };
 
-  // FIXME-Check how this is getting linked
-  if (contentConfig.name.includes('about')) {
-    return <div>About</div>;
-  }
-
   const components = {
     types: {
       break: (props: any) => {
@@ -55,7 +50,7 @@ const ProgramEligibility: StandardFC<Props> = (props) => {
       },
     },
     marks: {
-      internalLink: (props) => {
+      internalLink: (props: any) => {
         return (
           <a
             className="underline text-[#206B9E] hover:cursor-pointer"
