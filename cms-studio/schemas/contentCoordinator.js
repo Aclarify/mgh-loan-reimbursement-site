@@ -80,7 +80,15 @@ export default {
     {
       name: 'highlightText',
       title: 'Highlight Text',
-      type: 'string',
+      type: 'array',
+      of: [
+        {
+          type: 'block',
+        },
+        {
+          type: 'break',
+        },
+      ],
     },
   ],
 };

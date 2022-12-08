@@ -31,7 +31,7 @@ const Home: StandardFC<Props> = (props) => {
 
   return (
     <div className="flex-col justify-center">
-      <div id="contentHeader" className="flex-col text-center my-8">
+      <div id="contentHeader" className="flex-col text-center ">
         <span className="text-3xl font-semibold font-inter-700 text-mgh-dark-grey sm:text-4xl ">
           {titleText}
         </span>
@@ -39,7 +39,7 @@ const Home: StandardFC<Props> = (props) => {
           <PortableText value={contentNotes[0].content as any} />
         </div>
         <span className=" font-inter-400 text-mgh-highlight-red font-bold text-sm sm:text-base ">
-          {contentNotes[0].highlightText}
+          <PortableText value={contentNotes[0].highlightText as any} />
         </span>
       </div>
       <div
