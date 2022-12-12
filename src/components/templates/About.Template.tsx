@@ -55,12 +55,13 @@ const About: StandardFC<Props> = (props) => {
         <div className="flex flex-row flex-wrap justify-evenly mt-6  gap-6">
           {downloadableFiles.map((downloadableFile: DownloadableFile) => {
             const buttonText = downloadableFile.btnText;
-            const fileSource = downloadableFile.downloadableFile.asset.url;
+            const fileSource = downloadableFile.downloadableFileURL;
             const fileName = downloadableFile.fileName;
             return (
               <a
                 className="inline-flex basis-1/4 text-center items-center rounded-md border border-transparent bg-mgh-primary p-2  text-sm font-inter-600 font-semibold  text-white shadow-sm hover:bg-mgh-primary-dark focus:outline-none "
-                href={`${fileSource}?dl=${fileName}`}
+                href={`${fileSource}`}
+                target="_blank"
               >
                 <span className="w-full">{buttonText}</span>
               </a>

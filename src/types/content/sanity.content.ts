@@ -174,7 +174,7 @@ export interface FileType {
 export interface DownloadableFile {
   btnText: string;
   fileName: string;
-  downloadableFile: FileType;
+  downloadableFileURL: string;
 }
 
 export interface MainContentProps {

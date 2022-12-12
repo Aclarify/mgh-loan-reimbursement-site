@@ -23,12 +23,7 @@ const AboutPage = () => {
             downloadableFiles {
               fileName
               btnText
-              downloadableFile {
-                asset {
-                  originalFilename
-                  url
-                }
-              }
+              downloadableFileURL
             }
             contentNotes {
               title

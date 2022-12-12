@@ -14,9 +14,9 @@ export default {
       type: 'string',
     },
     {
-      name: 'downloadableFile',
-      title: 'Source File',
-      type: 'file',
+      name: 'downloadableFileURL',
+      title: 'Source File URL',
+      type: 'string',
     },
   ],
 };
