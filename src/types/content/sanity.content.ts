@@ -25,6 +25,7 @@ export interface Cta {
 export interface TextLogo {
   titleLine1: string;
   titleLine2: string;
+  href: string;
   type: 'default';
 }
 export interface FooterTextLogo {
@@ -93,7 +94,7 @@ export interface NavigationProps {
 export interface ContentNotes {
   title: string;
   content: RichText;
-  highlightText: string;
+  highlightText: RichText;
   _rawContent: any;
 }
 
@@ -170,6 +171,12 @@ export interface FileType {
   };
 }
 
+export interface DownloadableFile {
+  btnText: string;
+  fileName: string;
+  downloadableFileURL: string;
+}
+
 export interface MainContentProps {
   titleText: string;
   name: string;
@@ -180,7 +187,7 @@ export interface MainContentProps {
   subContentTitle: string;
   subContentTitleNote: string;
   ruleGroups: Array<RuleGroup>;
-  downloadableFile: FileType;
+  downloadableFiles: Array<DownloadableFile>;
   form: Form;
   buttonText: string;
   button: Button;

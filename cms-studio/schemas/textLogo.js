@@ -3,7 +3,20 @@ export default {
   name: 'textLogo',
   type: 'document',
   fields: [
-    { name: 'titleLine1', type: 'string', title: 'Logo Line1' },
-    { name: 'titleLine2', type: 'string', title: 'Logo Line2' },
+    {
+      name: 'titleLine1',
+      type: 'string',
+      title: 'Logo Line1',
+    },
+    {
+      name: 'titleLine2',
+      type: 'string',
+      title: 'Logo Line2',
+    },
+    {
+      title: 'URL',
+      name: 'href',
+      type: 'string',
+    },
   ],
 };

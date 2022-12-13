@@ -22,6 +22,7 @@ import footerTextLogo from './footerTextLogo';
 import eligibilityStatus from './eligibilityStatus';
 import images from './images';
 import rules, { condition, rule } from './rules';
+import fileDownload from './fileDownload';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -43,6 +44,7 @@ export default createSchema({
     footerTextLogo,
     textIconGroup,
     socialMediaIcons,
+    fileDownload,
     mainContent,
     formControl,
     form,

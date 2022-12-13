@@ -1,5 +1,8 @@
 import React from 'react';
-import { MainContentProps } from '../../types/content/sanity.content';
+import {
+  DownloadableFile,
+  MainContentProps,
+} from '../../types/content/sanity.content';
 import { StandardFC } from '../../types/libs/react.lib';
 import { PortableText } from '@portabletext/react';
 
@@ -9,7 +12,7 @@ interface Props {
 
 const About: StandardFC<Props> = (props) => {
   const contentConfig = props.content.edges[0].node;
-  const { titleText, contentNotes, button, downloadableFile } = contentConfig;
+  const { titleText, contentNotes, button, downloadableFiles } = contentConfig;
 
   const components = {
     types: {
@@ -49,13 +52,21 @@ const About: StandardFC<Props> = (props) => {
             components={components}
           />
         </div>
-        <div className="flex justify-center mt-6">
-          <a
-            className="inline-flex items-center rounded-md border border-transparent bg-mgh-primary px-3 py-2 text-sm font-inter-600 font-semibold leading-4 text-white shadow-sm hover:bg-mgh-primary-dark focus:outline-none "
-            href={`${downloadableFile.asset.url}?dl=SLRP_FAQ.pdf`}
-          >
-            {button.text}
-          </a>
+        <div className="flex flex-row flex-wrap justify-evenly mt-6  gap-6">
+          {downloadableFiles.map((downloadableFile: DownloadableFile) => {
+            const buttonText = downloadableFile.btnText;
+            const fileSource = downloadableFile.downloadableFileURL;
+            const fileName = downloadableFile.fileName;
+            return (
+              <a
+                className="inline-flex basis-1/4 text-center items-center rounded-md border border-transparent bg-mgh-primary p-2  text-sm font-inter-600 font-semibold  text-white shadow-sm hover:bg-mgh-primary-dark focus:outline-none "
+                href={`${fileSource}`}
+                target="_blank"
+              >
+                <span className="w-full">{buttonText}</span>
+              </a>
+            );
+          })}
         </div>
       </div>
     </div>

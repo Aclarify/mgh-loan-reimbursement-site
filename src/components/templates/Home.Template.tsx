@@ -31,7 +31,7 @@ const Home: StandardFC<Props> = (props) => {
 
   return (
     <div className="flex-col justify-center">
-      <div id="contentHeader" className="flex-col text-center my-8">
+      <div id="contentHeader" className="flex-col text-center ">
         <span className="text-3xl font-semibold font-inter-700 text-mgh-dark-grey sm:text-4xl ">
           {titleText}
         </span>
@@ -39,12 +39,12 @@ const Home: StandardFC<Props> = (props) => {
           <PortableText value={contentNotes[0].content as any} />
         </div>
         <span className=" font-inter-400 text-mgh-highlight-red font-bold text-sm sm:text-base ">
-          {contentNotes[0].highlightText}
+          <PortableText value={contentNotes[0].highlightText as any} />
         </span>
       </div>
       <div
         id="subContent"
-        className="flex-col fill-white border-l border-r border-b rounded-b-xl p-6 shadow-xl my-16 "
+        className="flex-col fill-white border-l border-r border-b rounded-b-xl p-6 shadow-xl mt-6 mb-16 "
       >
         <div className="my-6">
           <Form form={form} onSubmit={transitToProgram} />
@@ -74,7 +74,10 @@ const Home: StandardFC<Props> = (props) => {
                   {logoText}
                 </span>
               </div>
-              <div id="contentFooterLogo" className="flex justify-center">
+              <div
+                id="contentFooterLogo"
+                className="flex justify-center text-center"
+              >
                 <div className={clsx('relative', 'h-16', 'sm:h-24', 'lg:w-64')}>
                   <Logo gatsbyImageData={logo?.asset?.gatsbyImageData} />
                 </div>
