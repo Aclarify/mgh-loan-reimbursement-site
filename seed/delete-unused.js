@@ -1,12 +1,13 @@
 const sanityClient = require('@sanity/client');
+require('dotenv').config();
 
-const client = sanityClient({
-  projectId: 'use project id here',
-  dataset: 'production',
-  apiVersion: '2021-03-25',
-  token: 'use token id here ',
-  useCdn: true, // `false` if you want to ensure fresh data
-});
+ const client = sanityClient({
+    projectId: process.env.SANITY_PROJECT_ID,
+    dataset: process.env.SANITY_PROJECT_DATASET,
+    apiVersion: '2021-03-25', // use current UTC date - see "specifying API version"!
+    token: process.env.SANITY_READ_TOKEN, // or leave blank for unauthenticated usage
+    useCdn: true, // `false` if you want to ensure fresh data
+  });
 
 const query = `
   *[ _type in ["use document name (to be deleted) here"] ]

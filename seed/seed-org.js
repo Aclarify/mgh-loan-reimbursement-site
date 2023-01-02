@@ -3,12 +3,13 @@ const { nanoid } = require('nanoid');
 const sanityClient = require('@sanity/client');
 const csv = require('csv-parser');
 const fs = require('fs');
+require('dotenv').config();
 try {
   const client = sanityClient({
-    projectId: 'use project id here',
-    dataset: 'production',
+    projectId: process.env.SANITY_PROJECT_ID,
+    dataset: process.env.SANITY_PROJECT_DATASET,
     apiVersion: '2021-03-25', // use current UTC date - see "specifying API version"!
-    token: 'use token id here', // or leave blank for unauthenticated usage
+    token: process.env.SANITY_READ_TOKEN, // or leave blank for unauthenticated usage
     useCdn: true, // `false` if you want to ensure fresh data
   });
 
