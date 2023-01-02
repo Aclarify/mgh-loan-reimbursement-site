@@ -43,6 +43,16 @@ const IndexPage = () => {
             contentFooterNotes {
               title
               _rawContent
+              content {
+                _type
+                style
+                children {
+                  _key
+                  _type
+                  text
+                  marks
+                }
+              }
             }
             subContentTitle
             subContentTitleNote
