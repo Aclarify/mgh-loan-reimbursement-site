@@ -18,58 +18,68 @@ const Home: StandardFC<Props> = (props) => {
   const {
     titleText,
     contentNotes,
-    form,
-    buttonText,
+    contentFooterNotes,
     button,
     logoText,
     logo,
   } = contentConfig;
-  const formControl = form.formControls[0];
-  const transitToProgram = (formValue: any) => {
-    navigate(`/program/${formValue[formControl.name]}`);
+  const components = {
+    types: {
+      break: (props: any) => {
+        const { style } = props.value;
+        if (style === 'lineBreak') {
+          return <br className="lineBreak" />;
+        }
+        return null;
+      },
+    },
+    marks: {
+      internalLink: (props: any) => {
+        return (
+          <a
+            className="underline text-[#206B9E] hover:cursor-pointer"
+            href={props.value.href}
+          >
+            {props.children}
+          </a>
+        );
+      },
+    },
   };
-
   return (
     <div className="flex-col justify-center">
       <div id="contentHeader" className="flex-col text-center ">
         <span className="text-3xl font-semibold font-inter-700 text-mgh-dark-grey sm:text-4xl ">
           {titleText}
         </span>
-        <div className="mt-4 font-inter-400 text-mgh-medium-grey mx-4 sm:mx-0 mb-6 text-left">
+        <div className="mt-4 font-inter-400 text-mgh-medium-grey mx-4 sm:mx-0 mb-4 text-left">
           <PortableText value={contentNotes[0].content as any} />
         </div>
         <span className=" font-inter-400 text-mgh-highlight-red font-bold text-sm sm:text-base ">
           <PortableText value={contentNotes[0].highlightText as any} />
         </span>
-      </div>
-      <div
-        id="subContent"
-        className="flex-col fill-white border-l border-r border-b rounded-b-xl p-6 shadow-xl mt-6 mb-16 "
-      >
-        <div className="my-6">
-          <Form form={form} onSubmit={transitToProgram} />
+        <div className="mt-6 font-inter-400 text-mgh-medium-grey mx-4 sm:mx-0 mb-4 text-left">
+          <PortableText
+            value={contentFooterNotes[0]._rawContent}
+            components={components}
+          />
         </div>
       </div>
-      <div id="contentFooter" className="mt-4">
+      <div>
+        <div id="contentFooterLogo" className="flex justify-center ">
+          <div className={clsx('h-16', 'sm:h-24')}>
+            <Button text={button.text} onClick={applyNow}></Button>
+          </div>
+        </div>
+      </div>
+      <div id="contentFooter">
         <div className="flex-col justify-center">
           <div className="relative mx-auto">
             <div className=" w-full border-t border-gray-300" />
           </div>
-          <div className=" sm:flex justify-between content-center">
+          <div className=" flex justify-center content-center">
             <div>
-              <div className="flex justify-center mt-12 mb-4">
-                <span className=" text-lg text-mgh-dark-grey  font-inter-400 font-normal">
-                  {buttonText}
-                </span>
-              </div>
-              <div id="contentFooterLogo" className="flex justify-center">
-                <div className={clsx('h-16', 'sm:h-24')}>
-                  <Button text={button.text} onClick={applyNow}></Button>
-                </div>
-              </div>
-            </div>
-            <div>
-              <div className="flex justify-center mt-12 mb-4">
+              <div className="flex justify-center mt-6 ">
                 <span className="text-lg text-mgh-dark-grey font-inter-400 font-medium">
                   {logoText}
                 </span>

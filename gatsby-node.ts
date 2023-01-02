@@ -88,12 +88,12 @@ export const createPages = async ({ graphql, actions, reporter }: any) => {
   );
   result.data.allSanityMainContent.edges.forEach(({ node }: any) => {
     const path = `program/${node.slug}`;
-    createPage({
-      path,
-      component: programTemplate,
-      context: {
-        program: node,
-      },
-    });
+    // createPage({
+    //   path,
+    //   component: programTemplate,
+    //   context: {
+    //     program: node,
+    //   },
+    // });
   });
 };
