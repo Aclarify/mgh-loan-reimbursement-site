@@ -53,11 +53,9 @@ const NavBar: StandardFC = () => {
     }
   `);
   const headerConfig = allSanityNavigation.edges[0].node;
-  const { logo, links, linkGroup, textLogo } = headerConfig;
+  const { logo, links, textLogo } = headerConfig;
   const navLinks = links;
-  const categoryLinks = linkGroup.links;
-  const linkGroupName = linkGroup.text;
-  const allNavLinks = [...navLinks, ...categoryLinks];
+  const allNavLinks = [...navLinks];
   return (
     <section className="relative ">
       <div>
@@ -154,64 +152,6 @@ const NavBar: StandardFC = () => {
                       {link.text}
                     </Link>
                   ))}
-                <Popover className="relative">
-                  {({ open }) => (
-                    <>
-                      <Popover.Button
-                        className={clsx(
-                          open ? 'text-white-900 ' : 'text-white-500 ',
-                          'group inline-flex items-center  text-base font-medium md:mr-8'
-                        )}
-                      >
-                        <span>{linkGroupName}</span>
-                        <ChevronDownIcon
-                          className={clsx(
-                            open
-                              ? 'text-white-600 rotate-180'
-                              : 'text-white-400 rotate-0',
-                            'ml-2 h-5 w-5 group-hover:text-white-500 duration-200 transition-all transform'
-                          )}
-                          aria-hidden="true"
-                        />
-                      </Popover.Button>
-
-                      <Transition
-                        as={Fragment}
-                        enter="transition ease-out duration-200"
-                        enterFrom="opacity-0 translate-y-1"
-                        enterTo="opacity-100 translate-y-0"
-                        leave="transition ease-in duration-150"
-                        leaveFrom="opacity-100 translate-y-0"
-                        leaveTo="opacity-0 translate-y-1"
-                      >
-                        <Popover.Panel className="absolute left-[-41%] z-10 mt-3 w-screen max-w-md -translate-x-1/2 transform px-2 ">
-                          <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-                            <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                              {categoryLinks &&
-                                categoryLinks.length &&
-                                categoryLinks.map((link, index) => (
-                                  <Link
-                                    key={link.name}
-                                    to={link.href}
-                                    className={clsx(
-                                      'text-base',
-                                      'font-medium',
-                                      'text-gray-500',
-                                      'hover:text-gray-900',
-                                      'outline-none',
-                                      'ring-0'
-                                    )}
-                                  >
-                                    {link.text}
-                                  </Link>
-                                ))}
-                            </div>
-                          </div>
-                        </Popover.Panel>
-                      </Transition>
-                    </>
-                  )}
-                </Popover>
               </Popover.Group>
             </div>
           </div>

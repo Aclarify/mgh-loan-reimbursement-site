@@ -40,6 +40,10 @@ const IndexPage = () => {
                 }
               }
             }
+            contentFooterNotes {
+              title
+              _rawContent
+            }
             subContentTitle
             subContentTitleNote
             form {
