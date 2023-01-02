@@ -46,24 +46,6 @@ const IndexPage = () => {
             }
             subContentTitle
             subContentTitleNote
-            form {
-              name
-              formControls {
-                name
-                label
-                type
-                placeholder
-                options {
-                  label
-                  value
-                }
-              }
-              button {
-                text
-                type
-                href
-              }
-            }
             buttonText
             button {
               href
