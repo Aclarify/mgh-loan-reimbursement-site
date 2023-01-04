@@ -30,6 +30,12 @@ export default {
       of: [{ type: 'reference', to: [{ type: 'contentCoordinator' }] }],
     },
     {
+      title: 'Content Footer Notes',
+      name: 'contentFooterNotes',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'contentCoordinator' }] }],
+    },
+    {
       name: 'subContentTitle',
       title: 'Sub Content Title',
       type: 'string',

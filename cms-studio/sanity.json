@@ -4,8 +4,7 @@
     "name": "MA Repay Program CMS"
   },
   "api": {
-    "projectId": "xwbbz1k9",
-    "dataset": "production"
+    "dataset": ""
   },
   "plugins": [
     "@sanity/base",
@@ -15,9 +14,10 @@
   ],
   "env": {
     "development": {
-      "plugins": [
-        "@sanity/vision"
-      ]
+      "plugins": ["@sanity/vision"]
+    },
+    "api": {
+      "dataset": "develop"
     }
   },
   "parts": [

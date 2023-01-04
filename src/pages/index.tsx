@@ -40,26 +40,22 @@ const IndexPage = () => {
                 }
               }
             }
-            subContentTitle
-            subContentTitleNote
-            form {
-              name
-              formControls {
-                name
-                label
-                type
-                placeholder
-                options {
-                  label
-                  value
+            contentFooterNotes {
+              title
+              _rawContent
+              content {
+                _type
+                style
+                children {
+                  _key
+                  _type
+                  text
+                  marks
                 }
               }
-              button {
-                text
-                type
-                href
-              }
             }
+            subContentTitle
+            subContentTitleNote
             buttonText
             button {
               href

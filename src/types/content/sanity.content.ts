@@ -97,6 +97,11 @@ export interface ContentNotes {
   highlightText: RichText;
   _rawContent: any;
 }
+export interface ContentFooterNotes {
+  title: string;
+  content: RichText;
+  _rawContent: any;
+}
 
 export interface RichText {
   children: Array<{ text: string }>;
@@ -184,6 +189,7 @@ export interface MainContentProps {
   isProgram?: boolean;
   contentNotes: ContentNotes[];
   highlightText: string;
+  contentFooterNotes: ContentFooterNotes[];
   subContentTitle: string;
   subContentTitleNote: string;
   ruleGroups: Array<RuleGroup>;
