@@ -58,21 +58,8 @@ const Home: StandardFC<Props> = (props) => {
         <span className=" font-inter-400 text-mgh-highlight-red font-bold text-sm sm:text-base ">
           <PortableText value={contentNotes[0].highlightText as any} />
         </span>
-        <div className="mt-6 font-inter-400 text-mgh-medium-grey mx-4 sm:mx-0 mb-4 text-left">
-          <PortableText
-            value={contentFooterNotes[0]._rawContent}
-            components={components}
-          />
-        </div>
       </div>
-      <div>
-        <div id="contentFooterLogo" className="flex justify-center ">
-          <div className={clsx('h-16', 'sm:h-24')}>
-            <Button text={button.text} onClick={applyNow}></Button>
-          </div>
-        </div>
-      </div>
-      <div id="contentFooter">
+      <div id="contentFooter" className="mt-6">
         <div className="flex-col justify-center">
           <div className="relative mx-auto">
             <div className=" w-full border-t border-gray-300" />
